@@ -1,7 +1,3 @@
-# Seminario-de-Lenguajes
-
-
-
 <h1 align="center"> 💻Seminario de Lenguajes Python </h1>
 
 <div align="center">
