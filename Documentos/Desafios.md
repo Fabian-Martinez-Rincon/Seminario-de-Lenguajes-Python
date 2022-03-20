@@ -35,6 +35,12 @@ SINO:
 
 - Escribir un programa que ingrese desde teclado una cadena de caracteres e imprima cuántas letras ``a`` contiene.
 
+## ```7) Septimo Desafio``` [Resolución](#Desafio_7)
+
+- Escribir un programa que ingrese 4 palabras desde teclado e imprima aquellas que contienen la letra ```r```.
+- **Pensar:** ¿Podemos usar la instrucción **for** tal cual la vimos la clase pasada para las 4 iteraciones?
+- La sentencia **for** permite iterar sobre una **secuencia.**
+
 Desafio_1
 =========
 ```Py
@@ -108,4 +114,23 @@ for car in cadena:
     if (car == "a"):
         contador_a+=1
 print("La cantidad de letras a es: " , contador_a)
+```
+
+Desafio_7
+=========
+```Py
+for i in range(4):
+    cadena = input("Ingresá una palabra: ")
+    if "r" in cadena:
+        print(cadena)
+
+#for elem in range(4):
+#    cadena = input('Ingresa una cadena: ')
+#    encontro = False
+#    i=0
+#    while(i < len(cadena)) and encontro == False:
+#        if cadena[i] == "r":
+#            print(cadena)
+#            encontro = True
+#        i=i+1
 ```
