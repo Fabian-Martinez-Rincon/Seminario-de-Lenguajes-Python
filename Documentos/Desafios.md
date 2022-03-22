@@ -68,6 +68,20 @@ Calcular cuántos tienen notas menores al promedio
 
 Obviamente no. **Necesitamos tipos de datos que nos permiten guardar muchos valores**
 
+```11)Desafio Onceavo``` [Resolución](#Desafio_11)
+
+**Necesitamos procesar las notas de los estudiantes de este curso Queremos saber:**
+
+- Cúal es el promedio de las notas
+- **Qué estudiantes** están por debajo del promedio
+
+¿Qué diferencia hay con el desafio anterior?
+
+- Deberíamos ingresar no sólo las notas, sino también los nombres de los estudiantes.
+- ¿Qué soluciones proponen?
+
+
+
 Desafio_1
 =========
 ```Py
@@ -183,4 +197,38 @@ while cadena != "FIN":
     else:
         print("No empieza y termina con la misma letra")
     cadena = input("Ingresá una palabra: ")
+```
+
+Desafio_10
+```Py
+notas = [ 4, 6, 7, 3, 8, 1, 10, 4]
+total = 0
+
+for i in range((len(notas))):
+    print(notas[i])
+    total += notas[i]
+promedio = total/(len(notas))
+print("El promedio de las notas es: " , promedio)
+```
+
+Desafio_11
+==========
+```Py
+notas = {"Janis Joplin":10, "Elvis Presley": 9, "Bob Marley": 5, "Jimi Hendrix": 9}
+notas["Bob Marley"]
+total = 0
+
+
+for key in notas:
+    print (key, ":", notas[key])
+    total += notas[key]
+
+promedio = total/(len(notas))
+print("El promedio de las notas es: " , promedio)
+debajo_promedio = 0
+for i in notas:
+    if notas[i] < promedio:
+        print("El estudiantes", i , "Esta por debajo del promedio")
+        debajo_promedio+=+1
+
 ```
