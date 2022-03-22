@@ -68,7 +68,7 @@ Calcular cuántos tienen notas menores al promedio
 
 Obviamente no. **Necesitamos tipos de datos que nos permiten guardar muchos valores**
 
-```11)Desafio Onceavo``` [Resolución](#Desafio_11)
+## ```11)Desafio Onceavo``` [Resolución](#Desafio_11)
 
 **Necesitamos procesar las notas de los estudiantes de este curso Queremos saber:**
 
