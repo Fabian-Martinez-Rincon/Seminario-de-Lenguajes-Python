@@ -41,6 +41,33 @@ SINO:
 - **Pensar:** ¿Podemos usar la instrucción **for** tal cual la vimos la clase pasada para las 4 iteraciones?
 - La sentencia **for** permite iterar sobre una **secuencia.**
 
+## ```8) Octavo Desafio``` [Resolución](#Desafio_8)
+
+Vamos a modificar el código anterior para que imprima la cadena **R** si la palabra contiene la letra r y sino, imprimal ``NO TIENE R``
+
+## ```9) Noveno Desafio``` [Resolución](#Desadfio_9)
+
+**Ingresar palabras desde teclado hasta ingresar la palabra FIN. Imprimir aquellas que empiecen y terminen con la misma letra**
+
+- ¿Qué estructura de control deberiamos utilizar para realizar esta interación?¿Podemos utilizar la sentencia for?
+
+## ```10) Decimo Desafio``` [Resolución](#Desafio_10)
+
+**Necesitamos procesar las notas de los estudiantes de este curso. Queremos saber:**
+
+- Cuál es el promedio de las notas
+- Cuántos estudiantes están por debajo del promedio
+
+¿Cómo estudiantes están por debajo del promedio?
+
+```
+Ingresar las notas
+Calcular el promedio
+Calcular cuántos tienen notas menores al promedio
+```
+
+Obviamente no. **Necesitamos tipos de datos que nos permiten guardar muchos valores**
+
 Desafio_1
 =========
 ```Py
@@ -133,4 +160,27 @@ for i in range(4):
 #            print(cadena)
 #            encontro = True
 #        i=i+1
+```
+Desafio_8
+=========
+```Py
+for i in range(4):
+    cadena = input("Ingresá una palabra: ")
+    if "r" in cadena:
+        print("TIENE R")
+    else:
+        print("NO TIENE R")
+```
+
+Desafio_9
+=========
+```Py
+cadena = input("Ingresá una palabra: ")
+while cadena != "FIN":
+    if cadena[0] == (cadena[len(cadena)-1]):
+        print("Empiezar y terminan con la misma letra")
+        print(cadena)
+    else:
+        print("No empieza y termina con la misma letra")
+    cadena = input("Ingresá una palabra: ")
 ```
