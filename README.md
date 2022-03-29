@@ -87,7 +87,63 @@ Obviamente no. **Necesitamos tipos de datos que nos permiten guardar muchos valo
 - Deberíamos ingresar no sólo las notas, sino también los nombres de los estudiantes.
 - ¿Qué soluciones proponen?
 
+## ```12)Desafio Doceavo``` [Resolución](#Desafio_12)
 
+**Queremos escribir una función que imprima sus argumentos agregando de qué tipo son**
+
+- Por ejemplo, podríamos invocarla de la siguiente manera:
+
+```py
+imprimo(1) --> 1 es de tipo <class 'int'>
+imprimo(2, "hola") --> 2 es de tipo <class 'int'>, hola es de tipo <class 'str'>
+imprimo([1,2], "hola", 3.2) --> [1, 2] es de tipo <class 'list', hola es de tipo <class 'str'>
+```
+
+¿Qué tiene de distinta esta función respecto a las que vimos antes o conocemos de otros lenguajes?
+
+## ```13)Desafio Treceavo``` [Resolución](#Desafio_13)
+
+**Probar en casa este ejemplo y analizar el orden en el que definimos los parámetros.**
+
+```Py
+ def imprimo_muchos_valores(mensaje_inicial, *en_otro_idioma, **en_detalle):
+    print("Mensaje original")
+    print(mensaje_inicial)
+    print("\nEn otros idiomas")
+    print("-" * 40)
+    for val in en_otro_idioma:
+        print(val)
+    print("\nEn detalle")
+    print("-" * 40)
+    for clave in en_detalle:
+        print(f"{clave}: {en_detalle[clave]}")
+    print("\nFuente: traductor de Google. ")
+imprimo_muchos_valores("Hola",
+    "hello", "Hallo", "Aloha ", "Witam", "Kia ora",
+    ingles= "hello",
+    aleman="Hallo",
+    hawaiano="Aloha",
+    polaco="Witam",
+    maori="Kia ora")
+```
+
+## ```14)Desafio Catorceavo``` [Resolución](#Desafio_14)
+
+- Queremos implementar una función que dada una cadena de texto, retorne las palabras que contiene en orden alfabético.
+
+## ```15)Desafio Catorceavo``` [Resolución](#Desafio_15)
+
+- Queremos implementar una función que dada una colección con datos de usuarios de un determinado juego (por ejemplo nombre, nivel y puntaje), queremos retornar esta colección ordenada de acuerdo al nombre.
+
+## ```16)Desafio DecimoSexto``` [Resolución](#Desafio_16)
+
+**sando expresiones lambda escribir una función que permita codificar una frase según el siguiente algoritmo:**
+
+```
+encripto("a") --> "b"
+encripto("ABC") --> "BCD"
+encripto("Rock2021") --> "Spdl3132"
+```
 
 Desafio_1
 =========
@@ -237,5 +293,15 @@ for i in notas:
     if notas[i] < promedio:
         print("El estudiantes", i , "Esta por debajo del promedio")
         debajo_promedio+=+1
-
 ```
+
+Desafio_12
+==========
+Desafio_13
+==========
+Desafio_14
+==========
+Desafio_15
+==========
+Desafio_16
+==========
