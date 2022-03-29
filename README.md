@@ -1,7 +1,9 @@
 <h1 align="center"> 💻Seminario de Lenguajes Python </h1>
 
-- [Practica 1](/Documentos/Practica1.md)
 - [Ahorcado](/Documentos/Ahorcado.md)
+- [Practica 1](/Documentos/Practica1.md)
+- [Practica 2](/Documentos/Practica2.md)
+
 
 <h1 align="center"> 🤖Desafios </h1>
 
