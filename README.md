@@ -1,5 +1,10 @@
 <h1 align="center"> 💻Seminario de Lenguajes Python </h1>
 
+<div align="center">
+<img src="https://media.giphy.com/media/FBgN017wtq1YQ/giphy.gif"/>
+ </div>
+<br>
+
 - [Ahorcado](/Documentos/Ahorcado.md)
 - [Practica 1](/Documentos/Practica1.md)
 - [Practica 2](/Documentos/Practica2.md)
