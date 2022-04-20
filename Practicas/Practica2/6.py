@@ -7,7 +7,6 @@ escribir alguna pequeña base de datos personalizada, o una aplicación
 especializada con interfaz gráfica, o UN juego simple.
 """
 
-lista = set(frase.split())
+lista = set((frase.lower()).split())
 for palabra in lista:
-    if palabra.islower():
-        print(palabra)
+    print(palabra)

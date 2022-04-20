@@ -1,9 +1,13 @@
+import string
+
+
 f = open ('eval1.txt','r')
 notas = ((f.read()).split("\n"))
 f.close()
 for index, nota in enumerate(notas):
     notas[index] = ((nota.replace(",","")))
-
+#zip
+#readline
 notas.pop(-1) #Elimine el ultimo elemento ya que no me dejaba convertirlos porque era un string
 int_list = list(map(int, notas))
 
@@ -17,7 +21,7 @@ notas2.pop(-1)
 int_list2 = list(map(int, notas2))
 
 
-nuevasNotas = []
+nuevasNotas:list[int] = []
 for i in range(len(int_list)):
 	nuevasNotas.append(int_list[i]+int_list2[i])
 

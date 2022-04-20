@@ -12,6 +12,7 @@ syste"""
 list_valores  = [0,0,0,0]
 titulo = (((texto.split("\n")[0])).split()) #Saco el titulo
 titulo.remove(titulo[0]) #Elimino el primer elemento que no cuenta para el titulo
+#Usar el remplace('')
 if (len(titulo)<=10):
     print("Titulo esta ok")
 
@@ -29,3 +30,5 @@ for oracion in oraciones:
         list_valores [3]+=1
 
 print("Cantidad de oraciones fáciles de leer:", list_valores[0]," aceptables para leer:", list_valores[1], "dificil de leer: ",list_valores[2]," muy dificil de leer:" ,list_valores[3])
+
+#Pattern Matching

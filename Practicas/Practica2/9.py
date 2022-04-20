@@ -37,7 +37,7 @@ for celda in celdas:
             #print("La celda [", y,"],[",x,"] ")
         x+=1
     y+=1
-
+#Pattern Matching 
 print("_"*30)
 print(celdas_bombas)
 

@@ -5,5 +5,5 @@ if cumple:
     print("Contra Correcta")
 
 
-
-
+#falta esto :( print("Ingresaste alguno de estos símbolos: @ o !" )
+#count

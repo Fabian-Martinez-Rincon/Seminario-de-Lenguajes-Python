@@ -13,8 +13,7 @@ The uppercase letters 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'. This value is not␣
 letra = input("Ingrese una letra: ")
 
 SinRepe = (set(texto.lower().split()))
-
+#mas cortes
 for dato in SinRepe:
     if (dato[0].startswith(letra)):
         print(dato)
-        
