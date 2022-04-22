@@ -16,7 +16,7 @@ SINO:
 ### ```2) Segundo Desafio``` [Resolución](#Desafio_2)
 
 - Queremos ingresar un número desde el teclado e imprimir si es múltiplo de 2,3 o 5.
-- **Pista:** Python tiene otra forma de la sentencia condicional: **if-elif-else**
+- **Pista:** Pythonthon tiene otra forma de la sentencia condicional: **if-elif-else**
 
 ### ```3) Tercer Desafio``` [Resolución](#Desafio_3)
 
@@ -37,7 +37,7 @@ SINO:
 
 Desafio_1
 =========
-```Py
+```Python
 num = int( input("Ingresá un número: "))
 if num % 2 == 0:
     print("Es par")
@@ -46,7 +46,7 @@ else:
 ```
 Desafio_2
 =========
-```Py
+```Python
 num = int( input("Ingresá un número: "))
 if ((num % 2) == 0):
     print("El nro es multiplo de Dos")
@@ -60,7 +60,7 @@ else:
 Desafio_3
 =========
 
-```Py
+```Python
 letra = input("Ingresar una letra: ")
 if letra >="a" and letra <="z":
     print("Es minúscula")
@@ -72,7 +72,7 @@ else:
 Desafio_4
 =========
 
-```Py
+```Python
 letra = input("Ingresar un caracter: ")
 if letra == "\"":
     print("Es una comilla")
@@ -83,7 +83,7 @@ else:
 Desafio_5
 =========
 
-```Py
+```Python
 cadena = input("Ingresar una cadena: ")
 cadena2 = input("Ingresar otra cadena: ")
 contador_1 = 0
@@ -101,7 +101,7 @@ else:
 Desafio_6
 =========
 
-```Py
+```Python
 cadena = input("Ingresar una cadena: ")
 contador_a = 0
 for car in cadena:

@@ -18,7 +18,7 @@ imprimo([1,2], "hola", 3.2) --> [1, 2] es de tipo <class 'list', hola es de tipo
 
 **Probar en casa este ejemplo y analizar el orden en el que definimos los parámetros.**
 
-```Py
+```Python
  def imprimo_muchos_valores(mensaje_inicial, *en_otro_idioma, **en_detalle):
     print("Mensaje original")
     print(mensaje_inicial)
@@ -61,7 +61,7 @@ encripto("Rock2021") --> "Spdl3132"
 Ejercicio_1
 -----------
 
-```Py
+```Python
 from typing import Any
 def imprimo(*args:Any): #El tipo any es cualquier tipo
     for valor in args:
@@ -116,7 +116,7 @@ print(ordeno1("Hoy puede ser un gran día. "))
 Ejercicio_4
 -----------
 
-```Py
+```Python
 tipo_Usuarios = list[tuple[str,str,int]]
 def ordeno3(usuarios:tipo_Usuarios):
     return sorted(usuarios, key=lambda usuario: usuario[1])
@@ -133,7 +133,7 @@ print(ordeno3(usuarios))
 Ejercicio_5
 -----------
 
-```Py
+```Python
 cadena = "hola como estan"
 cadena = map(lambda x: chr(ord(x) + 1), cadena)
 cadena = (''.join(map(str,cadena)))

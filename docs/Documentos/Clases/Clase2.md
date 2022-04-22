@@ -41,7 +41,7 @@ Obviamente no. **Necesitamos tipos de datos que nos permiten guardar muchos valo
 
 Desafio_1
 ---------
-```Py
+```Python
 for i in range(4):
     cadena = input("Ingresá una palabra: ")
     if "r" in cadena:
@@ -52,7 +52,7 @@ for i in range(4):
 
 Desafio_2
 ---------
-```Py
+```Python
 cadena = input("Ingresá una palabra: ")
 while cadena != "FIN":
     if cadena[0] == (cadena[len(cadena)-1]):
@@ -65,7 +65,7 @@ while cadena != "FIN":
 
 Desafio_3
 ---------
-```Py
+```Python
 notas = [ 4, 6, 7, 3, 8, 1, 10, 4]
 total = 0
 
@@ -78,7 +78,7 @@ print("El promedio de las notas es: " , promedio)
 
 Desafio_4
 ---------
-```Py
+```Python
 notas = {"Janis Joplin":10, "Elvis Presley": 9, "Bob Marley": 5, "Jimi Hendrix": 9}
 notas["Bob Marley"]
 total = 0

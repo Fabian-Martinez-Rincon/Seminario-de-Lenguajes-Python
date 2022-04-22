@@ -9,7 +9,7 @@
 Desafio_7
 =========
 
-```Py
+```Python
 for i in range(4):
     cadena = input("Ingresá una palabra: ")
     if "r" in cadena:
