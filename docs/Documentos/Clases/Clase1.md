@@ -37,16 +37,19 @@ SINO:
 
 Desafio_1
 =========
-```Python
+
+```python
 num = int( input("Ingresá un número: "))
 if num % 2 == 0:
     print("Es par")
 else:
     print("No es par")
 ```
+
 Desafio_2
 =========
-```Python
+
+```python
 num = int( input("Ingresá un número: "))
 if ((num % 2) == 0):
     print("El nro es multiplo de Dos")
@@ -57,10 +60,11 @@ elif((num % 5) == 0):
 else:
     print("El nro no es multiplo de 2,3 o 5")
 ```
+
 Desafio_3
 =========
 
-```Python
+```python
 letra = input("Ingresar una letra: ")
 if letra >="a" and letra <="z":
     print("Es minúscula")
@@ -69,10 +73,11 @@ elif letra >= "A" and letra <= "Z":
 else:
     print("NO es una letra")
 ```
+
 Desafio_4
 =========
 
-```Python
+```python
 letra = input("Ingresar un caracter: ")
 if letra == "\"":
     print("Es una comilla")
@@ -83,7 +88,7 @@ else:
 Desafio_5
 =========
 
-```Python
+```python
 cadena = input("Ingresar una cadena: ")
 cadena2 = input("Ingresar otra cadena: ")
 contador_1 = 0
@@ -101,7 +106,7 @@ else:
 Desafio_6
 =========
 
-```Python
+```python
 cadena = input("Ingresar una cadena: ")
 contador_a = 0
 for car in cadena:
