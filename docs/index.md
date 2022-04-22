@@ -6,12 +6,8 @@
 <br>
 
 
+<h2> Teoria (Desafios) </h2>
 
-
-Teoria (Desafios)
-
-Practica (Ejercicios)
- 
 
 - [Clase 1](/Documentos/Clases/Clase1.md)
 - [Clase 1.1](/Documentos/Clases/Clase1_1.md)
@@ -19,7 +15,7 @@ Practica (Ejercicios)
 - [Clase 3](/Documentos/Clases/Clase3.md)
 - [Clase 4](/Documentos/Clases/Clase4.md)
 
-
+<h2 > Practica (Ejercicios) </h2>
 
 - [Ahorcado](/Documentos/Ahorcado.md)
 - [Practica 1](/Documentos/Practica1.md)
