@@ -1,6 +1,6 @@
 <h1 align="center"> 🐍Clase 2 </h1>
 
-```1)``` [Resolución](#Desafio_1)
+### ```1) Primer Desafio``` [Resolución](#Desafio_1)
 
 - Dado el conjunto de datos con series y películas de Netflix, queremos:
 
@@ -8,7 +8,7 @@
 
   - 2) Los cinco (5) países con más producciones en Netflix.
 
-```2)``` [Resolución](#Desafio_2)
+### ```2) Segundo Desafio``` [Resolución](#Desafio_2)
 
 - Implementar un programa que muestre un menú a través del cual se puedan visualizar los resultados del desafío 1.
 

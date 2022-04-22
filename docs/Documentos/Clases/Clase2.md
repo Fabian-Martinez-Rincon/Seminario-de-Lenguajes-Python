@@ -1,16 +1,16 @@
 <h1 align="center"> 🐍Clase 2 </h1>
 
-```1)``` [Resolución](#Desafio_1)
+### ```1) Primer Desafio``` [Resolución](#Desafio_1)
 
 Vamos a modificar el código anterior para que imprima la cadena **R** si la palabra contiene la letra r y sino, imprimal ``NO TIENE R`` 
 
-```2)``` [Resolución](#Desadfio_2)
+### ```2) Segundo Desafio``` [Resolución](#Desadfio_2)
 
 **Ingresar palabras desde teclado hasta ingresar la palabra FIN. Imprimir aquellas que empiecen y terminen con la misma letra** 
 
 - ¿Qué estructura de control deberiamos utilizar para realizar esta interación?¿Podemos utilizar la sentencia for?
 
-```3)``` [Resolución](#Desafio_3) 
+### ```3) Tercer Desafio``` [Resolución](#Desafio_3) 
 
  **Necesitamos procesar las notas de los estudiantes de este curso. Queremos saber:** 
 
@@ -27,7 +27,7 @@ Calcular cuántos tienen notas menores al promedio
 
 Obviamente no. **Necesitamos tipos de datos que nos permiten guardar muchos valores**
 
-```4)``` [Resolución](#Desafio_4)
+### ```4) Cuarto Desafio``` [Resolución](#Desafio_4)
 
 **Necesitamos procesar las notas de los estudiantes de este curso Queremos saber:**
 

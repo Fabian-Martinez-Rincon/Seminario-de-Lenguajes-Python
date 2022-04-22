@@ -1,6 +1,6 @@
 <h1 align="center"> 🐍Clase 3 </h1>
 
-```1)``` [Resolución](#Desafio_1)
+### ```1) Primer Desafio``` [Resolución](#Desafio_1)
 
 **Queremos escribir una función que imprima sus argumentos agregando de qué tipo son**
 
@@ -14,7 +14,7 @@ imprimo([1,2], "hola", 3.2) --> [1, 2] es de tipo <class 'list', hola es de tipo
 
 ¿Qué tiene de distinta esta función respecto a las que vimos antes o conocemos de otros lenguajes?
 
-```2)``` [Resolución](#Desafio_2)
+### ```2) Segundo Desafio``` [Resolución](#Desafio_2)
 
 **Probar en casa este ejemplo y analizar el orden en el que definimos los parámetros.**
 
@@ -40,15 +40,15 @@ imprimo_muchos_valores("Hola",
     maori="Kia ora")
 ```
 
-```3)``` [Resolución](#Desafio_3)
+### ```3) Tercer Desafio``` [Resolución](#Desafio_3)
 
 - Queremos implementar una función que dada una cadena de texto, retorne las palabras que contiene en orden alfabético.
 
-```4)``` [Resolución](#Desafio_4)
+### ```4) Cuarto Desafio``` [Resolución](#Desafio_4)
 
 - Queremos implementar una función que dada una colección con datos de usuarios de un determinado juego (por ejemplo nombre, nivel y puntaje), queremos retornar esta colección ordenada de acuerdo al nombre.
 
-```5)``` [Resolución](#Desafio_5)
+### ```5) Quinto Desafio``` [Resolución](#Desafio_5)
 
 **sando expresiones lambda escribir una función que permita codificar una frase según el siguiente algoritmo:**
 
