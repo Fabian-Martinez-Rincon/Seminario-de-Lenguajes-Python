@@ -6,7 +6,7 @@
 - **Pensar:** ¿Podemos usar la instrucción **for** tal cual la vimos la clase pasada para las 4 iteraciones?
 - La sentencia **for** permite iterar sobre una **secuencia.**
 
-Desafio_7
+Desafio_1
 =========
 
 ```python

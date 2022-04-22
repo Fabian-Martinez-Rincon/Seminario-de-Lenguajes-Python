@@ -3,6 +3,7 @@
 ## ``1 Python 2022- Practica``
 
 ### ``1.1 Objetivos``
+
 - Preparar el entorno de trabajo que utilizarán a lo largo de la materia instalando las herramientas básicas.
 - Aprender a escribir nuestro primer programa Python y ejercutarlo
 - Crear nuestro primer repositorio local y subir el código a un repositorio remoto
@@ -18,7 +19,7 @@ Para esta actividad existen 3 alternativos: *Instalar python en forma local, par
 
  #### ``2)`` Escriba en un archivo llamado adivino.py el siguiente programa en Python (similar al que vieron en la teoría [Clase 1 de la teoría](https://catedras.linti.unlp.edu.ar/pluginfile.php/103493/mod_resource/content/0/Clase_1_Introducci%C3%B3n.pdf))
 
- ```Py
+ ```python
  ## Adivina adivinador....
 import random
 numero_aleatorio = random.randrange(5)
@@ -54,6 +55,7 @@ if not gane:
  - ***Puntos:*** 10.
  - ***Fecha limite de entrega:*** Viernes, 25 de marzo de 2022, 23:59.
  - ***Modalidad de entrega:***
+ 
  1) Crea tu propio repositorio en [Github](https://github.com/) siguiendo esta [Guía](https://python-unlp.github.io/2022/guias/04_instalar_git/)
  2) Agregar el archivo ***adivino.py*** con las modificaciones solicitadas.
  3) Agrega el ***README.md*** con tu nombre y número de alumnx.
