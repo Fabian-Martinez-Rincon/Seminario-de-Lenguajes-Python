@@ -8,27 +8,22 @@
 
 
 
-<div align = "center">
+Teoria (Desafios)
 
-### ***Indice***
-
-<table>
-<tr>
-<td> Teoria </td> <td> Practica </td>
-</tr>
-<tr>
-<td>
+Practica (Ejercicios)
  
-- [Clase 1](/Documentos/Clase1.md)
-- [Clase 1.1](/Documentos/Clase1_1.md)
-- [Clase 2](/Documentos/Clase2.md)
-- [Clase 2.1](/Documentos/Clase2_1.md)
-- [Clase 3](/Documentos/Clase3.md)
-- [Clase 3.1](/Documentos/Clase3_1.md)
-- [Clase 4](/Documentos/Clase4.md)
-- [Clase 4.1](/Documentos/Clase4_1.md)
-- [Clase 5](/Documentos/Clase5.md)
 
-</td>
-<td>
+- [Clase 1](/Documentos/Clases/Clase1.md)
+- [Clase 1.1](/Documentos/Clases/Clase1_1.md)
+- [Clase 2](/Documentos/Clases/Clase2.md)
+- [Clase 3](/Documentos/Clases/Clase3.md)
+- [Clase 4](/Documentos/Clases/Clase4.md)
+
+
+
+- [Ahorcado](/Documentos/Ahorcado.md)
+- [Practica 1](/Documentos/Practica1.md)
+- [Practica 2](/Documentos/Practica2.md)
+- [Practica 3](/Documentos/Practica3.md)
+
  
