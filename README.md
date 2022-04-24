@@ -14,7 +14,7 @@
 
 <table>
 <tr>
-<td> Teoria (Desafios)</td> <td> Practica (Ejercicios)</td>
+<td> Teoria (Desafios y Tareas)</td> <td> Practica (Ejercicios)</td>
 </tr>
 <tr>
 <td>
@@ -23,6 +23,7 @@
 - [Clase 1.1](/docs/Documentos/Clases/Clase1_1.md)
 - [Clase 2](/docs/Documentos/Clases/Clase2.md)
 - [Clase 3](/docs/Documentos/Clases/Clase3.md)
+- [Clase 3.1](/docs/Documentos/Clases/Clase3_1.md)
 - [Clase 4](/docs/Documentos/Clases/Clase4.md)
 
 </td>

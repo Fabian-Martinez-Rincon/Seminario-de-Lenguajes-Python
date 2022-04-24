@@ -6,7 +6,7 @@
 <br>
 
 
-<h2> Teoria (Desafios) </h2>
+<h2> Teoria (Desafios y Tareas) </h2>
 
 
 - [Clase 1](/Documentos/Clases/Clase1.md)

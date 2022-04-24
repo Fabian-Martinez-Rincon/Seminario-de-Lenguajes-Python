@@ -1,0 +1,3 @@
+- Averiguar cuándo un módulo se denomina **__main__**
+
+`__main__` es el nombre del entorno en el cual se ejecuta el código de máximo nivel. `Código de máximo nivel` es el primer módulo de Python especificado por el usuario que empieza a ejecutarse. Es `de máximo nivel` porque importa todos los demás módulos que necesita el programa. A veces `código de máximo nivel` es llamado un punto de entrada a la aplicación
