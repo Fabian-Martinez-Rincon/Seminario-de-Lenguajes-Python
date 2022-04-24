@@ -19,20 +19,20 @@
 <tr>
 <td>
  
-- [Clase 1](/Documentos/Clases/Clase1.html)
-- [Clase 1.1](/Documentos/Clases/Clase1_1.html)
-- [Clase 2](/Documentos/Clases/Clase2.html)
-- [Clase 3](/Documentos/Clases/Clase3.html)
-- [Clase 4](/Documentos/Clases/Clase4.html)
+- [Clase 1](/docs/Documentos/Clases/Clase1.md)
+- [Clase 1.1](/docs/Documentos/Clases/Clase1_1.md)
+- [Clase 2](/docs/Documentos/Clases/Clase2.md)
+- [Clase 3](/docs/Documentos/Clases/Clase3.md)
+- [Clase 4](/docs/Documentos/Clases/Clase4.md)
 
 </td>
 <td>
  
 
-- [Ahorcado](/Documentos/Ahorcado.html)
-- [Practica 1](/Documentos/Practica1.html)
-- [Practica 2](/Documentos/Practica2.html)
-- [Practica 3](/Documentos/Practica3.html)
+- [Ahorcado](/docs/Documentos/Ahorcado.md)
+- [Practica 1](/docs/Documentos/Practica1.md)
+- [Practica 2](/docs/Documentos/Practica2.md)
+- [Practica 3](/docs/Documentos/Practica3.md)
 
  
 </td>
