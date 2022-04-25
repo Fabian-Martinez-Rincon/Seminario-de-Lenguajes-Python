@@ -2,10 +2,13 @@ import csv
 import os
 
 def Paises(csv_reader:list[list[str]]):
+    orden = []
     for linea in csv_reader:
-        if linea[1] == "TV Show" and linea[5] == "Argentina": 
-            print(f"{linea[2]:<40} {linea[3]}")
-
+        #print(linea[5])
+        orden.append(linea[5])
+    orden = (set(orden))
+    orden = sorted(orden)
+    print(orden)
 
 
 
@@ -26,4 +29,3 @@ Paises(datos)
 
 
 archivo.close()
-

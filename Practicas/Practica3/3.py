@@ -3,9 +3,8 @@ import os
 
 def Paises(csv_reader:list[list[str]]):
     for linea in csv_reader:
-        if linea[1] == "TV Show" and linea[5] == "Argentina": 
-            print(f"{linea[2]:<40} {linea[3]}")
-
+        if linea[7] == "2021" : 
+            print(linea[7])
 
 
 
@@ -26,4 +25,3 @@ Paises(datos)
 
 
 archivo.close()
-
