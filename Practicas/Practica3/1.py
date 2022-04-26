@@ -1,5 +1,6 @@
 import csv
 import os
+import json
 
 def Paises(csv_reader:list[list[str]]):
     for linea in csv_reader:
@@ -20,10 +21,20 @@ csv_reader = csv.reader(archivo, delimiter=',')
 encabezado = next(csv_reader)
 datos = list(csv_reader)
 print(encabezado)
-
-
 Paises(datos)
+
+
+
 
 
 archivo.close()
 
+import csv
+
+archivo = open("bandas.txt")
+archivo_csv = open("bandas.csv", "w")
+bandas = json.load(archivo)
+writer = csv.writer(archivo_csv)
+writer.writerow(["Nombre", "Ciudad de procedencia", "Refencias"])
+for banda in bandas:
+10
