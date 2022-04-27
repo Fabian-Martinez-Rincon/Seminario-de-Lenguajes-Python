@@ -25,6 +25,7 @@
 - [Clase 3](/docs/Documentos/Clases/Clase3.md)
 - [Clase 3.1](/docs/Documentos/Clases/Clase3_1.md)
 - [Clase 4](/docs/Documentos/Clases/Clase4.md)
+- [Clase 6](/docs/Documentos/Clases/Clase6.md)
 
 </td>
 <td>

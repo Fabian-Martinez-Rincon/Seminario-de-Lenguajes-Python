@@ -11,7 +11,7 @@ def Paises(csv_reader:list[list[str]]):
 
 
 ruta = os.path.dirname(os.path.realpath("."))
-ruta_archivo = os.path.join(ruta, "Practica3", "netflix_titles.csv")
+ruta_archivo = os.path.join(ruta, "Practica3", "BBB_nuevo.csv")
 
 
 archivo = open(ruta_archivo, "r", encoding="utf-8")
@@ -28,13 +28,3 @@ Paises(datos)
 
 
 archivo.close()
-
-import csv
-
-archivo = open("bandas.txt")
-archivo_csv = open("bandas.csv", "w")
-bandas = json.load(archivo)
-writer = csv.writer(archivo_csv)
-writer.writerow(["Nombre", "Ciudad de procedencia", "Refencias"])
-for banda in bandas:
-10

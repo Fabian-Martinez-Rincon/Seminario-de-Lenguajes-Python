@@ -1,6 +1,6 @@
 import csv
 import os
-
+import datetime
 
 
 ruta = os.path.dirname(os.path.realpath("."))
@@ -13,3 +13,6 @@ with open(ruta,"r", encoding="utf-8") as logs_moodle:
     header , logs_recurso = next(data_logs), list(data_logs )
 for linea in logs_recurso:
     print(linea[0])
+
+x = datetime.datetime.now()
+print(x)
