@@ -17,7 +17,7 @@ Para esta instalación de Python 3.X recomendado 3.10
 
 Para esta actividad existen 3 alternativos: *Instalar python en forma local, para windows seguir esta [guía](https://python-unlp.github.io/2022/guias/06_instalar_python/). * Utilizar una herramienta para realizar la instalación en tu sistema operativo: [Conda](https://docs.conda.io/en/latest/) o [Pyenv](https://pypi.org/project/pyenv/). Para conocer un poco más qué son entornos virtuales puede consultar esta [Guía](https://python-unlp.github.io/2022/guias/07_entornos_virtuales/) Utilizar directamente la Máquina Virtual provista por la cátedra. Para esto es necesario que se instale en el sistema operativo una herramiento de virtualización como [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
- #### ``2)`` Escriba en un archivo llamado adivino.py el siguiente programa en Python (similar al que vieron en la teoría [Clase 1 de la teoría](https://catedras.linti.unlp.edu.ar/pluginfile.php/103493/mod_resource/content/0/Clase_1_Introducci%C3%B3n.pdf))
+ #### ``2)`` Escriba en un archivo llamado adivino.py el siguiente programa en Python (similar al que vieron en la teoría [Clase 1 de la teoría](https://catedras.linti.unlp.edu.ar/pluginfile.php/103493/mod_resource/content/0/Clase_1_Introducci%C3%B3n.pdf))  [Resolución](#Ejercicio)
 
  ```python
  ## Adivina adivinador....
@@ -61,3 +61,24 @@ if not gane:
  3) Agrega el ***README.md*** con tu nombre y número de alumnx.
  4) Sube todos los cambios a tu repositorio en Github
  5) Agregar el link del repositorio a la [tarea](https://catedras.linti.unlp.edu.ar/mod/assign/view.php?id=34349) en el curso.
+
+Ejercicio
+---------
+
+```python
+import random
+numero_aleatorio = random.randrange(100)
+ganador_aleatorio = False
+print("Tenés 3 intentos para adivinar un entre 0 y 99")
+intento_aleatorio = 1
+while intento_aleatorio <= 5 and not ganador_aleatorio:
+    numeroIngresado = int(input('Ingresa tu número: '))
+    if numeroIngresado == numero_aleatorio:
+        print('Ganaste! y necesitaste {} intentos!!!'.format(intento_aleatorio))
+        ganador_aleatorio = True
+    else:
+        print('Mmmm ... No.. ese número no es... Seguí intentando.')
+        intento_aleatorio += 1
+if not ganador_aleatorio:
+    print('\n Perdiste :(\n El número era: {}'.format(numero_aleatorio))
+```
