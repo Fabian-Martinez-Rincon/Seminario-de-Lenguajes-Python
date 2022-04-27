@@ -1,18 +1,12 @@
-<h1 align="center"> 🐍Seminario de Lenguajes Python </h1>
+<h1 align="center"><img src="https://media.giphy.com/media/iQrDORShLPiqQ/giphy.gif" height="38" /> Seminario de Lenguajes Python </a>
+ <img style="transform:scaleX(-1);" src="https://media.giphy.com/media/NLu0gwvgUMdxPtAHqS/giphy.gif" height="38" /></h1>
 
-<div align="center">
-<img src="https://media.giphy.com/media/v4NCChJtoH076/giphy.gif"/>
- </div>
-<br>
 
+<img src="https://media.giphy.com/media/KbUEFowFNOLSAsHT7u/giphy.gif" align="right" width="300 " height="215">
 
 
 
-<div align = "center">
-
-### ***Indice***
-
-<table>
+<table >
 <tr>
 <td> Teoria (Desafios y Tareas)</td> <td> Practica (Ejercicios)</td>
 </tr>
@@ -42,5 +36,5 @@
  
 </table>
 
-</div>
+
 
