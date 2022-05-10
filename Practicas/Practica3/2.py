@@ -1,10 +1,9 @@
 import csv
 import os
 
-def Paises(csv_reader:list[list[str]]):
+def paises(csv_reader:list[list[str]]):
     orden = []
     for linea in csv_reader:
-        #print(linea[5])
         orden.append(linea[5])
     orden = (set(orden))
     orden = sorted(orden)
@@ -23,9 +22,5 @@ csv_reader = csv.reader(archivo, delimiter=',')
 encabezado = next(csv_reader)
 datos = list(csv_reader)
 print(encabezado)
-
-
-Paises(datos)
-
-
+paises(datos)
 archivo.close()
