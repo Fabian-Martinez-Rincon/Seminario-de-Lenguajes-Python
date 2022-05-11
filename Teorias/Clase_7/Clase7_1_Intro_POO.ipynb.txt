@@ -1,0 +1,1601 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "handed-string",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Seminario de Lenguajes - Python\n",
+    "## Cursada 2022\n",
+    "### Introducción a POO"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "racial-manner",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Pensemos en la siguiente situación:\n",
+    "\n",
+    "\n",
+    "- En el trabajo integrador tenemos que registrar los datos de quien juega.\n",
+    "- Podemos pensar en una entidad \"Jugador\" con datos asociados tales como:\n",
+    "        - nombre\n",
+    "        - nick\n",
+    "        - contraseña?\n",
+    "        - género auto percibido\n",
+    "        - edad\n",
+    "- También podríamos pensar en:\n",
+    "        - puntaje acumulado\n",
+    "        - vidas restantes\n",
+    "        - paleta de colores elegida\n",
+    "\n",
+    "##  ¿Con qué estructura de datos pensaron implementar esto con lo visto hasta ahora?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "senior-kentucky",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Podríamos utilizar diccionarios"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "aggressive-angola",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "jugador = {'nombre': 'Tony', 'nick': 'Ironman', \"genero\": \"masculino\", \"edad\": 40, \"puntos\": 0}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "apart-density",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "##  ¿Podemos asociar funcionalidades específicas a este \"jugador\"? \n",
+    "\n",
+    "Por ejemplo, **incrementar edad**, **cambiar paleta de colores**, **modificar puntaje** etc."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "massive-watts",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Podríamos definir funciones para definir la funcionalidad asociada"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "excessive-excess",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def incrementar_puntaje(jugador, puntos):\n",
+    "    \"\"\" Incrementa los puntos del jugador\n",
+    "    \n",
+    "    jugador:\n",
+    "    puntos:\n",
+    "    \"\"\"\n",
+    "    jugador[\"puntos\"] += puntos\n",
+    "    \n",
+    "def decrementar_puntaje(jugador, puntos):\n",
+    "    \"\"\"  ... \"\"\"\n",
+    "    jugador[\"puntos\"] -= puntos"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "accessible-airplane",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "#  Pero...\n",
+    "\n",
+    "\n",
+    "- ¿Podemos modificar a \"nuestro jugador\" sin utilizar estas funciones?\n",
+    "- ¿Podemos decir que \"nuestro jugador\" es una **entidad** que **encapsula** tanto su estructura como la funcionalidad para manipularlo?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "determined-question",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Hablemos de objetos ..."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "complete-weight",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Un objeto es una colección de datos con un comportamiento asociado en una única entidad\n",
+    "<center>\n",
+    "<img src=\"imagenes/objeto_jugador.png\" alt=\"Objeto Jugador\" style=\"width:350px;\"/>\n",
+    "</center>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "working-central",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Objetos\n",
+    "\n",
+    "- Son los elementos fundamentales de la POO.\n",
+    "- Son entidades que poseen **estado interno** y **comportamiento**.\n",
+    "\n",
+    "- Ya vimos  que en Python **todos** los elementos con los que trabajamos son objetos.\n",
+    "\n",
+    "```\n",
+    "\tcadena = \"Hola\"\n",
+    "\tarchivo = open(\"archi.txt\")\n",
+    "\n",
+    "\tcadena.upper()\n",
+    "\tarchivo.close()\n",
+    "```\n",
+    "\n",
+    "- **cadena** y **archivo** referencian a  **objetos**.\n",
+    "- **upper** y **close** forman parte del comportamiento de estos objetos: son **métodos**."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "italian-hobby",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# POO: conceptos básicos\n",
+    "\n",
+    "- En POO un programa puede verse como un **conjunto de objetos** que interactúan entre ellos **enviándose mensajes**.\n",
+    "- Estos mensajes están asociados al **comportamiento** del objeto (conjunto de **métodos**).\n",
+    "<center>\n",
+    "<img src=\"imagenes/envio_mensaje.png\" alt=\"Envío de mensajes\" style=\"width:650px;\"/>\n",
+    "</center>\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "subjective-authorization",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# El mundo de los objetos \n",
+    "\n",
+    "<center>\n",
+    "<img src=\"imagenes/objetos.png\" alt=\"Muchos objetos\" style=\"width:850px;\"/>\n",
+    "</center>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "exclusive-speaker",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- ¿Qué representa cada objeto?\n",
+    "- ¿Qué podemos decir de cada grupo de objetos?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "reserved-experiment",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Objetos y clases\n",
+    "\n",
+    "- No todos los objetos son iguales, ni tienen el mismo comportamiento. \n",
+    "- Así agrupamos a los objetos de acuerdo a características comunes.\n",
+    "\n",
+    "## Una clase describe las propiedades o atributos de objetos y las acciones o métodos que pueden hacer o ejecutar dichos objetos.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "refined-retention",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "<center>\n",
+    "<img src=\"imagenes/clases.png\" alt=\"Clases\" style=\"width:550px;\"/></center>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "arabic-athletics",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Pensemos en la clase Jugador\n",
+    "<center>\n",
+    "<img src=\"imagenes/clase_jugador.png\" alt=\"Clse Jugador\" style=\"width:450px;\"/>\n",
+    "</center>\n",
+    "\n",
+    "- Cuando creamos un objeto, creamos una **instancia de la clase**.\n",
+    "- Una instancia es un objeto individualizado por los valores que tomen sus atributos o propiedades."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "warming-rider",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- La **interfaz pública** del objeto está formada por las propiedades y métodos que otros objetos pueden usar para interactuar con él."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "daily-teacher",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- ¿Qué pasa si todas las propiedades y métodos son privadas? ¿Y si son todas públicas?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "qualified-aerospace",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Clases en Python\n",
+    "\n",
+    "```python\n",
+    "class NombreClase:\n",
+    "    sentencias\n",
+    "    ...\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "living-duncan",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- La [PEP 8](https://www.python.org/dev/peps/pep-0008/#class-names) sugieren usar CamelCase en el caso del nombre de las clases.\n",
+    "- Al igual que las funciones, las clases **deben** estar definidas antes de que se utilicen.\n",
+    "- Con la definición de una nueva clase se crea un **espacio de nombres nuevo**.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "inclusive-newton",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "### ¿Cómo se crea una instancia de una clase?\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "objeto =  NombreClase()\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "excellent-naples",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# La clase Jugador"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "powerful-thumbnail",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class Jugador():\n",
+    "    \"\"\"Define la entidad que representa a un jugador en el juego\"\"\"\n",
+    "\n",
+    "    #Propiedades\n",
+    "    nombre = 'Tony Stark'\n",
+    "    nick = 'Ironman'\n",
+    "    puntos = 0\n",
+    "\n",
+    "    #Métodos\n",
+    "    def incrementar_puntos(self, puntos):\n",
+    "        self.puntos += puntos"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "chemical-platform",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- ¿self?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "textile-athens",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Creamos las instancias"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "confused-filter",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "tony = Jugador()\n",
+    "tony.incrementar_puntos(10)\n",
+    "print(tony.nombre)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "applied-switzerland",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- **tony.incrementar_puntos()**\n",
+    "    - Atención a la cantidad de parámetros pasados.\n",
+    "- Cuando creamos otros objetos de clase **Jugador**, ¿qué particularidad tendrán?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "emotional-production",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "otro_jugador = Jugador()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "84b704b2",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(otro_jugador.nombre)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "challenging-english",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Podemos parametrizar  la creación de objetos"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "flexible-diamond",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class Jugador():\n",
+    "    \"\"\" Define la entidad que representa a un jugador en el juego\"\"\"\n",
+    "\n",
+    "    def __init__(self, nom, nic):\n",
+    "        self.nombre = nom\n",
+    "        self.nick = nic\n",
+    "        self.puntos = 0\n",
+    "    #Métodos\n",
+    "    def incrementar_puntos(self, puntos):\n",
+    "        self.puntos += puntos"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "expected-teens",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "tony = Jugador('Tony Stark','Ironman')\n",
+    "tony.incrementar_puntos(10)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "foreign-lightning",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- El método **__init__() se invoca automáticamente** al crear el objeto."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "coordinated-specialist",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# ¿Qué pasa si..?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "capital-samba",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "otro_jugador = Jugador()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "moving-depression",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "## Podemos inicializar con valores por defecto"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "verbal-treatment",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class Jugador():\n",
+    "    \"\"\" Define la entidad que representa a un jugador en el juego\"\"\"\n",
+    "\n",
+    "    def __init__(self, nom=\"Tony Stark\", nic=\"Ironman\"):\n",
+    "        self.nombre = nom\n",
+    "        self.nick = nic\n",
+    "        self.puntos = 0\n",
+    "    #Métodos\n",
+    "    def incrementar_puntos(self, puntos):\n",
+    "        self.puntos += puntos"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "moderate-mount",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "tony = Jugador()\n",
+    "bruce = Jugador(\"Bruce Wayne\", \"Batman\")\n",
+    "print(tony.nombre)\n",
+    "print(bruce.nombre)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "spare-marathon",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Observemos este código: ¿qué diferencia hay entre villanos y enemigos?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "understanding-chase",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class SuperHeroe():\n",
+    "    villanos = []\n",
+    "\n",
+    "    def __init__(self, nombre, alias):\n",
+    "            self.nombre = nombre\n",
+    "            self.enemigos = []\n",
+    "            "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "engaged-contributor",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- **villanos** es una **variable de clase** mientras que **enemigos** es una **variable de instancia**.\n",
+    "- ¿Qué significa esto?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "mathematical-guinea",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Veamos el ejemplo completo:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "mexican-spine",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class SuperHeroe():\n",
+    "    \"\"\" Esta clase  define a un superheroe \n",
+    "    villanos:  representa a los enemigos de todos los superhéroes\n",
+    "    \"\"\"  \n",
+    "    villanos = []\n",
+    "        \n",
+    "    def __init__(self, nombre, alias):\n",
+    "        self.nombre = nombre\n",
+    "        self.enemigos = []\n",
+    "                \n",
+    "    def get_nombre(self):\n",
+    "        return self.nombre\n",
+    "  \n",
+    "    def get_enemigos(self):\n",
+    "        return self.enemigos\n",
+    "        \n",
+    "    def agregar_enemigo(self, otro_enemigo):\n",
+    "        \"Agrega un enemigo a los enemigos del superhéroe\"\n",
+    "        \n",
+    "        self.enemigos.append(otro_enemigo)\n",
+    "        SuperHeroe.villanos.append(otro_enemigo)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "several-windsor",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# OJO que esta función  está FUERA de la clase\n",
+    "def imprimo_villanos(nombre, lista_de_villanos):\n",
+    "    \"imprime  la lista de todos los villanos de nombre\"\n",
+    "    print(\"\\n\"+\"*\"*40)\n",
+    "    print(f\"Los enemigos de {nombre}\")\n",
+    "    print(\"*\"*40)\n",
+    "    for malo in lista_de_villanos:\n",
+    "        print(malo)\n",
+    "        \n",
+    "batman = SuperHeroe( \"Bruce Wayne\", \"Batman\")\n",
+    "ironman = SuperHeroe( \"Tony Stark\", \"ironman\")\n",
+    "\n",
+    "batman.agregar_enemigo(\"Joker\")\n",
+    "batman.agregar_enemigo(\"Pinguino\")\n",
+    "batman.agregar_enemigo(\"Gatubela\")\n",
+    "\n",
+    "ironman.agregar_enemigo(\"Whiplash\")\n",
+    "ironman.agregar_enemigo(\"Thanos\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "foster-thomas",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "imprimo_villanos(batman.get_nombre(), batman.get_enemigos())\n",
+    "imprimo_villanos(ironman.get_nombre(), ironman.get_enemigos())\n",
+    "\n",
+    "imprimo_villanos(\"todos los superhéroes\", SuperHeroe.villanos)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "adopted-album",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "#  Python me permite cosas como éstas: "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "french-scale",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class SuperHeroe:\n",
+    "    pass\n",
+    "\n",
+    "tony = SuperHeroe()  \n",
+    "tony.nombre = \"Tony Stark\"\n",
+    "tony.alias = \"Ironman\"\n",
+    "tony.soy_Ironman = lambda : True if tony.alias == \"Ironman\" else False\n",
+    "\n",
+    "tony.soy_Ironman()\n",
+    "tony.nombre"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f77e1e8c",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "del tony.nombre\n",
+    "tony.nombre"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cubic-elder",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- ¿Qué significa?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "living-machinery",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- ¡¡Aunque esto no sería lo más indicado de hacer!!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "accepting-clearing",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "#  Volvamos a este código: ¿no hay algo que parece incorrecto?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "db25dd9e",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class SuperHeroe():\n",
+    "    villanos = []\n",
+    "\n",
+    "    def __init__(self, nombre, alias):\n",
+    "            self.nombre = nombre\n",
+    "            self.enemigos = []        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "43fc9fb4",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "batman = SuperHeroe(\"Bruce\", \"Batman\")\n",
+    "print(batman.nombre)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "hollow-viewer",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Público y privado\n",
+    "\n",
+    "- Antes de empezar a hablar de esto ....\n",
+    "\n",
+    "\"**“Private” instance variables that cannot be accessed except from inside an object don’t exist in Python.\"**\"\n",
+    "\n",
+    "- De nuevo.. en español..\n",
+    "\n",
+    "**\"Las variables «privadas» de instancia, que no pueden accederse excepto desde dentro de un objeto, no existen en Python\"\"**\n",
+    "\n",
+    "- ¿Y entonces?\n",
+    "\n",
+    "- Más info:  https://docs.python.org/3/tutorial/classes.html#private-variables"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "immediate-brown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Hay una convención ..\n",
+    "\n",
+    "Es posible **definir el acceso** a determinados métodos y atributos de los objetos, quedando claro qué cosas se pueden y no se pueden utilizar desde **fuera de la clase**.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "addressed-titanium",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "\n",
+    "- **Por convención**, todo atributo (propiedad o método) que comienza con \"_\" se considera no público.\n",
+    "- Pero esto no impide que se acceda. **Simplemente es una convención**."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cultural-february",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Privado por convención"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "confused-interest",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class Jugador():\n",
+    "    \"Define la entidad que representa a un jugador en el juego\"\n",
+    "    def __init__(self, nom=\"Tony Stark\", nic=\"Ironman\"):\n",
+    "        self._nombre = nom\n",
+    "        self.nick = nic\n",
+    "        self.puntos = 0\n",
+    "    #Métodos\n",
+    "    def incrementar_puntos(self, puntos):\n",
+    "        self.puntos += puntos\n",
+    "\n",
+    "tony = Jugador()\n",
+    "print(tony._nombre)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "frozen-assessment",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- Hay otra forma de indicar que algo no es \"tan\" público: agregando a los nombres de la variables o funciones, dos guiones **(__)** delante. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "streaming-tribune",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Veamos este ejemplo: códigos secretos"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "painted-senior",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class CodigoSecreto:\n",
+    "    '''¿¿¿Textos con clave??? '''\n",
+    "\n",
+    "    def __init__(self, texto_plano, clave_secreta):\n",
+    "        self.__texto_plano = texto_plano\n",
+    "        self.__clave_secreta = clave_secreta\n",
+    "\n",
+    "    def desencriptar(self, clave_secreta):\n",
+    "        '''Solo se muestra el texto si la clave es correcta'''\n",
+    "        \n",
+    "        if clave_secreta == self.__clave_secreta:\n",
+    "            return self.__texto_plano\n",
+    "        else:\n",
+    "            return ''"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "portuguese-value",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- ¿Cuáles son las propiedades? ¿Públicas o privadas?\n",
+    "- ¿Y los métodos?¿Públicos o privados?\n",
+    "- ¿Cómo creo un objeto **CodigoSecreto**?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "level-concept",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Codificamos textos\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "class CodigoSecreto:\n",
+    "    '''¿¿¿Textos con clave???? '''\n",
+    "\n",
+    "    def __init__(self, texto_plano, clave_secreta):\n",
+    "        self.__texto_plano = texto_plano\n",
+    "        self.__clave_secreta = clave_secreta\n",
+    "\n",
+    "    def desencriptar(self, clave_secreta):\n",
+    "        '''Solo se muestra el texto si la clave es correcta'''\n",
+    "        if clave_secreta == self.__clave_secreta:\n",
+    "            return self.__texto_plano\n",
+    "        else:\n",
+    "            return ''\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "referenced-neighbor",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "texto_secreto = CodigoSecreto(\"Seminario Python\", \"stark\")\n",
+    "print(texto_secreto.desencriptar(\"stark\"))\n",
+    "print(texto_secreto.__texto_plano)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fifth-anthropology",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- ¿Qué pasa si tenemos quiero imprimir desde fuera de la clase: **texto_secreto.__texto_plano**?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "interior-kentucky",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "## Entonces, ¿sí es privado?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "qualified-explosion",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "#  Códigos no tan secretos\n",
+    "\n",
+    "- Ahora, probemos esto:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "departmental-motion",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "print(texto_secreto._CodigoSecreto__texto_plano)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "august-clone",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- Todo identificador que comienza con **\"__\"**, por ejemplo **__texto_plano**, es reemplazado textualmente por _NombreClase__identificador, por ejemplo: **_CodigoSecreto__texto_plano**.\n",
+    "\n",
+    "- [+Info](https://dbader.org/blog/meaning-of-underscores-in-python)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "dramatic-feedback",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Entonces... respecto a lo público y privado\n",
+    "\n",
+    "## Respetaremos las convenciones\n",
+    "\n",
+    "### Todo identificador que comienza con **\"_\"** será considerado privado."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "continental-sucking",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- **Tarea:** buscar qué dice la PEP 8 sobre esto."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "industrial-screening",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Algunos métodos especiales\n",
+    "\n",
+    "Mencionamos antes que los \"__\" son especales en Python. Por ejemplo, podemos definir métodos con estos nombres:\n",
+    "\n",
+    "- \\_\\_lt__, \\_\\_gt__, \\_\\_le__, \\_\\_ge__ \n",
+    "- \\_\\_eq__, \\_\\_ne__\n",
+    "\n",
+    "En estos casos, estos métodos nos permiten comparar dos objetos con los símbolos correspondientes:\n",
+    "\n",
+    "- x<y invoca  x.\\_\\_lt\\_\\_(y),\n",
+    "- x<=y invoca x.\\_\\_le\\_\\_(y), \n",
+    "- x==y invoca x.\\_\\_eq\\_\\_(y), \n",
+    "- x!=y invoca x.\\_\\_ne\\_\\_(y),\n",
+    "- x>y invoca x.\\_\\_gt\\_\\_(y), \n",
+    "- x>=y invoca x.\\_\\_ge\\_\\_(y)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "universal-ceiling",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class Jugador:\n",
+    "    \"\"\" .. \"\"\"\n",
+    "    def __init__(self, nom=\"Tony Stark\", nic=\"Ironman\"):\n",
+    "        self._nombre = nom\n",
+    "        self.nick = nic\n",
+    "        self.puntos = 0\n",
+    "    def __lt__(self, otro):\n",
+    "        return (self._nombre < otro._nombre)\n",
+    "    def __eq__(self, otro):\n",
+    "        return (self.nick == otro.nick)\n",
+    "    def __ne__(self, otro):\n",
+    "        return (self._nombre != otro._nombre)\n",
+    "\n",
+    "tony = Jugador()\n",
+    "bruce = Jugador(\"Bruce Wayne\", \"Batman\")\n",
+    "\n",
+    "if bruce < tony:\n",
+    "    print(\"Mmmm.... Algo anda mal..\")\n",
+    "print(\"Son iguales\" if tony == bruce else \"Son distintos\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6ebe9ee4",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# El método \\_\\_str\\_\\_\n",
+    "\n",
+    "Retorna una cadena de caracteres (str) con la representación que querramos mostras del objeto. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "fea64304",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class Jugador:\n",
+    "    \"\"\" .. \"\"\"\n",
+    "    def __init__(self, nom=\"Tony Stark\", nic=\"Ironman\"):\n",
+    "        self._nombre = nom\n",
+    "        self.nick = nic\n",
+    "        self.puntos = 0\n",
+    "    def __str__(self):\n",
+    "        return (f\"{self._nombre}, mejor conocido como {self.nick}\")\n",
+    "    def __lt__(self, otro):\n",
+    "        return (self._nombre < otro._nombre)\n",
+    "    def __eq__(self, otro):\n",
+    "        return (self.nick == otro.nick)\n",
+    "    def __ne__(self, otro):\n",
+    "        return (self._nombre != otro._nombre)\n",
+    "tony = Jugador()\n",
+    "bruce = Jugador(\"Bruce Wayne\", \"Batman\")\n",
+    "\n",
+    "print(tony)\n",
+    "print(tony if tony == bruce else bruce)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2c7517f2",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "[-Info](https://docs.python.org/3/reference/datamodel.html#special-method-names)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ef2f2f5f",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Juegos electrónicos\n",
+    "\n",
+    "<img src=\"imagenes/herencia.png\" alt=\"Herencia\" style=\"width:650px;\"/>\n",
+    "\n",
+    "- Un jugador de LOL **\"es un\"** Jugador."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2e67276f",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Herencia\n",
+    "\n",
+    "- Es uno de los conceptos más importantes de la POO.\n",
+    "- La herencia permite que una clase pueda *heredar* los atributos y métodos de otra clase, que se \"agregan\" a los propios. \n",
+    "- Este concepto permite \"sumar\", es decir \"extender\" una clase.\n",
+    "- La clase que hereda se denomina **clase derivada** y la clase de la cual se deriva se denomina **clase base**.\n",
+    "\n",
+    "- Así, **Jugador es la clase base** y **JugadorDeLOL es la clase derivada**."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c300f98d",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Escribamos el código"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2b7d3e57",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Jugador:\n",
+    "    def __init__(self, nombre, juego=\"Tetris\", tiene_equipo=False, equipo=None):\n",
+    "            self.nombre = nombre\n",
+    "            self.juego = juego\n",
+    "            self.tiene_equipo = tiene_equipo\n",
+    "            self.equipo = equipo\n",
+    "    def jugar(self):\n",
+    "            if self.tiene_equipo:\n",
+    "                    print (f\"{self.nombre} juega en el equipo {self.equipo} al {self.juego}\")\n",
+    "            else:\n",
+    "                    print(f\"{self.nombre} juega solo al {self.juego}\")\n",
+    "\n",
+    "class JugadorDeFIFA(Jugador):\n",
+    "    def __init__(self, nombre, equipo):\n",
+    "            Jugador.__init__(self, nombre, \"FIFA\", True, equipo)\n",
+    "\n",
+    "class JugadorDeLOL(Jugador):\n",
+    "    def __init__(self, nombre, equipo):\n",
+    "            Jugador.__init__(self, nombre, \"LOL\")\n",
+    "            \n",
+    "nico = JugadorDeFIFA('Nico Villalba', \"Guild Esports\")\n",
+    "nico.jugar()\n",
+    "faker = JugadorDeLOL(\"Faker\", \"SK Telecom\")\n",
+    "faker.jugar()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7e0addde",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# ¿e-sports?\n",
+    "\n",
+    "<img src=\"imagenes/herencia_multiple.png\" alt=\"Actividad inicial\" style=\"width:650px;\"/>\n",
+    "\n",
+    "- Un jugador de FIFA **\"es un\"** Jugador, pero también **\"es un\"** Deportista.\n",
+    "\n",
+    "## Python tiene **herencia múltiple**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "83592ac7",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# ¿A qué jugamos?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "3e585bb8",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class Jugador:\n",
+    "    def __init__(self, nombre, juego=\"No definido\", tiene_equipo= False, equipo=None):\n",
+    "        self.nombre = nombre\n",
+    "        self.juego = juego\n",
+    "        self.tiene_equipo = tiene_equipo\n",
+    "        self.equipo = equipo\n",
+    "        \n",
+    "    def jugar(self):\n",
+    "        if self.tiene_equipo:\n",
+    "            print (f\"{self.nombre} juega en el equipo {self.equipo} al {self.juego}\")\n",
+    "        else:\n",
+    "            print(f\"{self.nombre} juega solo al {self.juego}\")\n",
+    "\n",
+    "class Deportista:\n",
+    "    def __init__(self, nombre, equipo = None):\n",
+    "        self.nombre = nombre\n",
+    "        self.equipo = equipo\n",
+    "   \n",
+    "    def jugar(self): \n",
+    "        print (f\"Mi equipo es {self.equipo}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "fd81d4a8",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class JugadorDeFIFA(Jugador, Deportista):\n",
+    "    def __init__(self, nombre, equipo):\n",
+    "        Jugador.__init__(self, nombre, \"PS4\", True, equipo)\n",
+    "        Deportista.__init__(self,nombre, equipo)\n",
+    "\n",
+    "class JugadorDeLOL(Deportista, Jugador):\n",
+    "    def __init__(self, nombre, equipo):\n",
+    "        Jugador.__init__(self, nombre, \"LOL\")\n",
+    "        Deportista.__init__(self, nombre, equipo)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "824e3046",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "nico = JugadorDeFIFA('Nico Villalba', \"Guild Esports\")\n",
+    "nico.jugar()\n",
+    "faker = JugadorDeLOL(\"Faker\", \"SK Telecom\")\n",
+    "faker.jugar()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "43f2cd71",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- Ambas clases bases tienen definido un método **jugar**.\n",
+    "    - En este caso, se toma el método de la clase más a la **izquierda** de la lista.\n",
+    "\n",
+    "- Por lo tanto, es MUY importante el orden en que se especifican las clases bases."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "db78c62b",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# MRO: Method Resolution Order \n",
+    "\n",
+    "```python\n",
+    "class JugadorDeFIFA(Jugador, Deportista):\n",
+    "    def __init__(self, nombre, equipo):\n",
+    "        Jugador.__init__(self, nombre, \"PS4\", True, equipo)\n",
+    "        Deportista.__init__(self,nombre, equipo)\n",
+    "```\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9610aef0",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "JugadorDeFIFA.__mro__"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "acb5bddc",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Resumiendo..."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f26e5772",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "## Objetos  y clases\n",
+    "\n",
+    "- La  **clase** define las propiedades y los métodos de los objetos.\n",
+    "\n",
+    "- Los **objetos** son instancias de una clase.\n",
+    "\n",
+    "- Cuando se crea un objeto, se ejecuta el método **\\_\\_init()__** que permite inicializar el objeto.\n",
+    "\n",
+    "- La definición de la clase especifica qué partes son privadas y cuáles públicas.\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d3a8b005",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Mensajes y métodos\n",
+    "\n",
+    "TODO el procesamiento en este modelo es activado por mensajes entre objetos.\n",
+    "\n",
+    "- El **mensaje** es el modo de comunicación entre los objetos. Cuando se invoca una función de un objeto, lo que se está haciendo es **enviando un mensaje** a dicho objeto.\n",
+    "- El **método** es la función que está asociada a un objeto determinado y cuya ejecución sólo puede desencadenarse a través del envío de un mensaje recibido.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "charming-recycling",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Seguimos la próxima ..."
+   ]
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Slideshow",
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
