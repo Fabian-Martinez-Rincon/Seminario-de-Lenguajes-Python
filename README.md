@@ -44,8 +44,29 @@
 
 <br>
 
+<input type="checkbox" id="scales" name="scales" checked><label for="scales">Clase_1_Introduccion</label> 
 
-<details><summary><input type="checkbox" id="scales" name="scales" checked><label for="scales">Clase_1_Introduccion</label> </summary> cosa
+<details open><summary>Importante</summary> 
+
+```Python
+cadena = "dos"
+match cadena:
+    case "uno":
+        print("UNO")
+    case "dos" | "tres":
+        print("DOS O TRES")
+    case _:
+        print("Ups.. ninguno de los anteriores")
+```
+
+```Python
+intento = 3
+nombre = "claudia"
+print(f'Hola {nombre} !!! Ganaste! y necesitaste {intento} intentos!!!')
+x = 4
+print(f"{x:2d} {x*x:3d} {x*x*x:4d}")
+```
+
 </details>
 <details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_2_Secuencias_Funciones</label> </summary>
 </details>
