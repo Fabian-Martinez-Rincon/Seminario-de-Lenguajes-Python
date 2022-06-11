@@ -1,0 +1,1166 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "typical-option",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "### Seminario de Lenguajes - Python\n",
+    "## Cursada 2022\n",
+    "### Control de tipos"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "wrong-remainder",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Control de tipos en Python"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bridal-karen",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Antes de empezar: ¿para qué nos sirve conocer el tipo de datos de una variable?\n",
+    "\n",
+    "\n",
+    "- Los tipos de datos nos permiten relacionar un **conjunto de valores** que son de ese tipo con las **operaciones** que se pueden aplicar sobre esos valores."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "large-sheriff",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# ¿Qué es un sistema de tipos?\n",
+    "\n",
+    "- El sistema de tipos es  un conjunto de reglas que tiene un lenguaje que nos permite manipular los datos de nuestros programas.\n",
+    "- Incluyen las conversiones explícitas e implícitas que podemos realizar."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "stuffed-success",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Lenguajes con tipado estático vs. dinámico\n",
+    "\n",
+    "- Se refiere a si el tipo de una variable se conoce en tiempo de compilación o en ejecución. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "forty-director",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "str"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = \"casa\"\n",
+    "type(x)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "related-moldova",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "\n",
+    "# Lenguajes fuertemente tipados vs. débilmente tipados\n",
+    "\n",
+    "- **Fuertemente tipados**: no se puede usar aplicar operaciones de otro tipo a menos que se haga una conversión explícita. Por ejemplo: Java, Pascal y Python.\n",
+    "- **Débilmente tipados**: se pueden mezclar en una misma expresión valores de distinto tipo.  Por ejemplo PHP y Javascript.\n",
+    "\n",
+    "```python\n",
+    "x = \"a\" + 5\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "latin-monthly",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "can only concatenate str (not \"int\") to str",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-2-b25c2ff693f6>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mx\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m\"a\"\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0;36m5\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mTypeError\u001b[0m: can only concatenate str (not \"int\") to str"
+     ]
+    }
+   ],
+   "source": [
+    "x = \"a\" + 5\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "julian-shopping",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "<img src=\"imagenes/verificacion_de_tipos.png\" alt=\"tipos\" style=\"width:850px;\"/>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "herbal-mistress",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Python\n",
+    "\n",
+    "- Es un lenguaje **fuertemente tipado**.\n",
+    "- Posee un **tipado dinámico**: el intérprete de Python realiza el chequeo de tipos durante la ejecución y el tipo de una variable puede cambiar durante su tiempo de vida. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "rough-yugoslavia",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# La verificación de tipos \n",
+    "\n",
+    "- Se refiere a chequeo de tipos. \n",
+    "- Es donde se aplican las reglas definidas en el sistema de tipos.\n",
+    "- La verificación de tipos puede ser:\n",
+    "    - estática: ocurre en tiempo de **compilación**. Por ejemplo: Pascal y C\n",
+    "    - dinámica: ocurre en tiempo de **ejecución**. Por ejemplo PHP, Ruby y Python."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "technical-acquisition",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ingresa 1 para verificar y 2 para no1\n",
+      "Estoy chequeando...\n"
+     ]
+    },
+    {
+     "ename": "TypeError",
+     "evalue": "can only concatenate str (not \"int\") to str",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-17-953bb85b289f>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0mopcion\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;34m\"1\"\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Estoy chequeando...\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 4\u001b[0;31m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"e\"\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0;36m4\u001b[0m \u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      5\u001b[0m \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Ahora no estoy dando error\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mTypeError\u001b[0m: can only concatenate str (not \"int\") to str"
+     ]
+    }
+   ],
+   "source": [
+    "opcion = input(\"ingresa 1 para verificar y 2 para no\")\n",
+    "if opcion == \"1\":\n",
+    "    print(\"Estoy chequeando...\")\n",
+    "    print(\"e\" + 4 )\n",
+    "else:\n",
+    "    print(\"Ahora no estoy dando error\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "coastal-feature",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Duck Typing"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "remarkable-stockholm",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "## \"Si parece un pato, nada como un pato y suena como un pato, entonces probablemente sea un pato”"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "initial-pension",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Observemos el siguiente código\n",
+    "- Sacado de https://realpython.com/python-type-checking/"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "alive-operations",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def headline(text, align=True):\n",
+    "    if align:\n",
+    "        return f\"{text.title()}\\n{'-' * len(text)}\"\n",
+    "    else:\n",
+    "        return f\" {text.title()} \".center(50, \"-\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "understanding-contamination",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Python Type Checking\n",
+      "--------------------\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(headline(\"python type checking\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "backed-insulation",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-------------- Python Type Checking --------------\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(headline(\"python type checking\", align=False))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "martial-cyprus",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Probemos esto:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "educated-integration",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Python Type Checking\n",
+      "--------------------\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(headline(\"python type checking\", align=\"left\"))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "solar-alloy",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Python permite agregar sugerencias de tipos: anotaciones"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "quick-metadata",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def headline(text: str, align: bool = True) -> str:\n",
+    "    if align:\n",
+    "        return f\"{text.title()}\\n{'-' * len(text)}\"\n",
+    "    else:\n",
+    "        return f\" {text.title()} \".center(50, \"-\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "handy-compromise",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Python Type Checking\n",
+      "--------------------\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(headline(\"python type checking\", align=\"left\"))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "sweet-separate",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- ¿Cambió algo?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "liquid-oklahoma",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "Si bien estas anotaciones están disponibles en tiempo de ejecución a través del atributo **\\_\\_annotations__**, no se realiza ninguna verificación de tipo en tiempo de ejecución."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "statewide-cardiff",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'text': str, 'align': bool, 'return': str}"
+      ]
+     },
+     "execution_count": 24,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "headline.__annotations__"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bored-peter",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Pero si lo abrimos en un IDE (PyCharm en este caso)\n",
+    "<img src=\"imagenes/codigo_en_PyCharm.png\" alt=\"tipos\" style=\"width:850px;\"/>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "assigned-occupation",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- Usamos un verificador de tipos externo.\n",
+    "- La herramienta más común para realizar la verificación de tipos es [Mypy](http://mypy-lang.org/)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "pretty-importance",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# mypy\n",
+    "\n",
+    "- Se instala con pip: pip install mypy\n",
+    "- <img src=\"imagenes/mypy.png\" alt=\"tipos\" style=\"width:850px;\"/>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "underlying-sample",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# ¿Cómo resolvemos este \"error\"?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "ordered-astronomy",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def headline(text: str, centered: bool = True) -> str:\n",
+    "    if centered:\n",
+    "        return f\"{text.title()}\\n{'-' * len(text)}\"\n",
+    "    else:\n",
+    "        return f\" {text.title()} \".center(50, \"-\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "chronic-trust",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Python Type Checking\n",
+      "--------------------\n",
+      "Use Mypy\n",
+      "--------\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(headline(\"python type checking\"))\n",
+    "print(headline(\"use mypy\", centered=True))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "exposed-twist",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Anotaciones\n",
+    "\n",
+    "- Como vimos, en las funciones se puede agregar anotaciones sobre los argumentos y el valor de retorno. \n",
+    "- En general:\n",
+    "```\n",
+    "def funcion(arg1: arg_type, arg2: arg_type = valor) -> return_type:\n",
+    "    ...\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "after-denmark",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "12.566370614359172\n"
+     ]
+    }
+   ],
+   "source": [
+    "import math\n",
+    "\n",
+    "def area_circunferencia(radio: float) -> float: \n",
+    "    return math.pi * radio ** 2\n",
+    "\n",
+    "area = area_circunferencia(2)\n",
+    "print(area)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "worst-usage",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# También se pueden hacer anotaciones de variables"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "deluxe-columbia",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "12.566370614359172\n"
+     ]
+    }
+   ],
+   "source": [
+    "pi: float = 3.1415\n",
+    "\n",
+    "def area_circunferencia(radio: float) -> float: \n",
+    "    return math.pi * radio ** 2\n",
+    "\n",
+    "area = area_circunferencia(2)\n",
+    "print(area)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "academic-maine",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'radio': float, 'return': float}"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "area_circunferencia.__annotations__"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "valued-cooking",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'pi': float,\n",
+       " 'mensaje': str,\n",
+       " 'nombre_bandas': list,\n",
+       " 'notas': tuple,\n",
+       " 'opciones': dict}"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "__annotations__"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "overall-temperature",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Un poco más sobre anotaciones\n",
+    "\n",
+    "- Se puede realizar una anotación de una variable **sin darle un valor**."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "scientific-fusion",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'pi': float,\n",
+       " 'mensaje': str,\n",
+       " 'nombre_bandas': list,\n",
+       " 'notas': tuple,\n",
+       " 'opciones': dict}"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mensaje: str\n",
+    "__annotations__"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "gorgeous-turning",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "10"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mensaje = 10\n",
+    "mensaje"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "global-mozambique",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Otros ejemplos"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "applicable-negative",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "nombre_bandas: list = [\"Led Zeppelin\", \"AC/DC\", \"Queen\"]\n",
+    "notas: tuple = (7, 8, 9, 10)\n",
+    "opciones: dict = {\"centered\": False, \"capitalize\": True}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "tested-forest",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- ¿Cómo podemos indicar que se trata de una lista de elementos str? ¿O una tupla de enteros?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "appreciated-reality",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# El modulo typing\n",
+    "\n",
+    "- Permite escribir anotaciones un poco más complejas."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "several-despite",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "from typing import Dict, List, Tuple\n",
+    "\n",
+    "nombre_bandas: List[str] = [\"Led Zeppelin\", \"AC/DC\", \"Queen\"]\n",
+    "notas: Tuple[int, int, int, int] = (7, 8, 9, 10)\n",
+    "opciones: Dict[str, bool] = {\"centered\": False, \"capitalize\": True}\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "equal-incident",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# Veamos este otro ejemplo"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "geographic-rehabilitation",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "from typing import List, Sequence\n",
+    "\n",
+    "def cuadrados(elems: Sequence[float]) -> List[float]:\n",
+    "    return [x**2 for x in elems]\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "deadly-civilization",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 4, 9]"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "cuadrados([1, 2, 3])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "contained-brisbane",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- Una secuencia es cualquier objeto que admita **len ()** y **\\_\\_ getitem __ ()**, independientemente de su tipo real."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ordered-roads",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "# ¿Qué pasa con este código?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "sitting-first",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import random\n",
+    "\n",
+    "def elijo_al_azar(lista_de_elementos):\n",
+    "    return random.choice(lista_de_elementos)\n",
+    "\n",
+    "lista = [1, \"dos\", 3.1415]\n",
+    "elijo_al_azar(lista)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "returning-option",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "### Para incorporar las anotaciones usamos el tipo: Any"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "regional-flour",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1"
+      ]
+     },
+     "execution_count": 38,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import random\n",
+    "from typing import Any, Sequence\n",
+    "\n",
+    "def elijo_al_azar(lista_de_elementos: Sequence[Any]) -> Any:\n",
+    "    return random.choice(lista_de_elementos)\n",
+    "\n",
+    "lista = [1, \"dos\", 3.1415]\n",
+    "elijo_al_azar(lista)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "confused-warning",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Anotaciones y POO"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "closing-coach",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "## ¿Cómo agregamos anotaciones a los métodos?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "fourth-theta",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class Jugador:\n",
+    "    \n",
+    "    def __init__(self, \n",
+    "                 nombre: str, \n",
+    "                 juego: str = \"Tetris\", \n",
+    "                 tiene_equipo: bool = False, \n",
+    "                 equipo: str = None) -> None:\n",
+    "        \n",
+    "            self.nombre = nombre\n",
+    "            self.juego = juego\n",
+    "            self.tiene_equipo = tiene_equipo\n",
+    "            self.equipo = equipo\n",
+    "            \n",
+    "    def jugar(self) -> None:\n",
+    "            if self.tiene_equipo:\n",
+    "                    print (f\"{self.nombre} juega en el equipo {self.equipo} al {self.juego}\")\n",
+    "            else:\n",
+    "                    print(f\"{self.nombre} juega solo al {self.juego}\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "received-frost",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "- Se usan las mismas reglas que para las funciones.\n",
+    "- **self** no necesita ser anotado. ¿De qué tipo es? "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "mobile-locking",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "## ¿Cómo agregamos anotaciones a las variables de instancia y de clase?\n",
+    "\n",
+    "- Se usan las mismas reglas que para las variables comunes.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "starting-circus",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class SuperHeroe():\n",
+    "    \"\"\" Esta clase  define a un superheroe \n",
+    "    villanos:  representa a los enemigos de todos los superhéroes\n",
+    "    \"\"\"  \n",
+    "    villanos: List[str] = []\n",
+    "        \n",
+    "    def __init__(self, nombre: str, alias: str) -> None:\n",
+    "                self._nombre = nombre\n",
+    "                self._enemigos = []\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "contained-zimbabwe",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Hasta acá llegamos..."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "sitting-production",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "## Más info\n",
+    "\n",
+    "- La [PEP 3107](https://www.python.org/dev/peps/pep-3107/) introdujo la sintaxis para las anotaciones de funciones, pero la semántica se dejó deliberadamente sin definir.\n",
+    "- La [PEP 484](https://www.python.org/dev/peps/pep-0484/) introduce un módulo provisional para proporcionar definiciones y herramientas estándares, junto con algunas convenciones para situaciones en las que las anotaciones no están disponibles.\n",
+    "- La [PEP 526](https://www.python.org/dev/peps/pep-0526/): tiene como objetivo mostrar de qué manera se pueden relaizar anotacion de varoables (incluidas las variables de clase y las variables de instancia),\n",
+    "\n",
+    "- Artículo de RealPython: https://realpython.com/python-type-checking/\n",
+    "- Artículo de [the state of type hints in Python](https://bernat.tech/posts/the-state-of-type-hints-in-python/) de Bernát Gábor."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "elegant-passion",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "<img src=\"imagenes/portada_video.png\" alt=\"nos vemos el martes\" style=\"width:1050px;\"/>"
+   ]
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Slideshow",
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
