@@ -44,9 +44,9 @@
 
 <br>
 
-<input type="checkbox" id="scales" name="scales" checked><label for="scales">Clase_1_Introduccion</label> 
+- [x] Clase_1_Introduccion
 
-<details open><summary>Importante</summary> 
+<details open><summary>Resumen</summary> 
 
 ```Python
 cadena = "dos"
@@ -68,26 +68,60 @@ print(f"{x:2d} {x*x:3d} {x*x*x:4d}")
 ```
 
 </details>
-<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_2_Secuencias_Funciones</label> </summary>
+
+- [x] Clase_2_Secuencias_Funciones
+
+
+<details><summary> Resumen </summary>
 </details>
-<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_3_Argumentos_lambda</label> </summary>
+
+- [] Clase_3_Argumentos_lambda
+
+<details><summary> Resumen </summary>
 </details>
-<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_4_Archivos</label> </summary>
+
+- [] Clase_4_Archivos
+
+<details><summary> Resumen </summary>
 </details>
-<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_5_Repaso_archivos</label> </summary>
+
+- [] Clase_5_Repaso_archivos
+
+<details><summary> Resumen </summary>
 </details>
-<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_6_Excepciones</label></summary>
+
+- [] Clase_6_Excepciones
+
+<details><summary> Resumen </summary>
 </details>
-<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_7_Intro_POO</label> </summary>
+
+- [] Clase_7_Intro_POO
+
+<details><summary> Resumen </summary>
 </details>
-<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_8_Iteradores_y_excepciones</label> </summary>
+
+- [] Clase_8_Iteradores_y_excepciones
+
+<details><summary> Resumen </summary>
 </details>
-<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_9_Intro_DS</label> </summary>
+
+- [] Clase_9_Intro_DS
+
+<details><summary> Resumen </summary>
 </details>
-<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_10_Pandas_Copa_America</label></summary>
+
+- [] Clase_10_Pandas_Copa_America
+
+<details><summary> Resumen </summary>
 </details>
-<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_11_Intro_Testing</label></summary>
+
+- [] Clase_11_Intro_Testing
+
+<details><summary> Resumen </summary>
 </details>
+
+
+
 
 
 
