@@ -1,8 +1,8 @@
 <h1 align="center"><img src="https://media.giphy.com/media/iQrDORShLPiqQ/giphy.gif" height="38" /> Seminario de Lenguajes Python </a>
  <img style="transform:scaleX(-1);" src="https://media.giphy.com/media/NLu0gwvgUMdxPtAHqS/giphy.gif" height="38" /></h1>
 
-
-<img src="https://media.giphy.com/media/KbUEFowFNOLSAsHT7u/giphy.gif" align="right" width="190 " >
+<div align="center">
+<img src="https://media.giphy.com/media/KbUEFowFNOLSAsHT7u/giphy.gif" align="right" height="178" >
 
 
 
@@ -24,7 +24,7 @@
 
 </td>
 <td>
- 
+
 
 - [Ahorcado](/docs/Documentos/Ahorcado.md)
 - [Practica 1](/docs/Documentos/Practica1.md)
@@ -37,37 +37,35 @@
  
 </table>
 
-<details><summary>[x] Clase_1_Introduccion</summary>
-</details>
+</div>
 
-<details><summary>[] Clase_2_Secuencias_Funciones</summary>
-</details>
 
-<details><summary>[] Clase_3_Argumentos_lambda</summary>
-</details>
+<legend>Lista de Tareas mas Resumen:</legend>
 
-<details><summary>[] Clase_4_Archivos</summary>
-</details>
+<br>
 
-<details><summary>[] Clase_5_Repaso_archivos</summary>
-</details>
 
-<details><summary>[] Clase_6_Excepciones</summary>
+<details><summary><input type="checkbox" id="scales" name="scales" checked><label for="scales">Clase_1_Introduccion</label> </summary> cosa
 </details>
-
-<details><summary>[] Clase_7_Intro_POO</summary>
+<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_2_Secuencias_Funciones</label> </summary>
 </details>
-
-<details><summary>[] Clase_8_Iteradores _y_excepciones</summary>
+<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_3_Argumentos_lambda</label> </summary>
 </details>
-
-<details><summary>[] Clase_9_Intro_DS</summary>
+<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_4_Archivos</label> </summary>
 </details>
-
-<details><summary>[] Clase_10_Pandas Copa America</summary>
+<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_5_Repaso_archivos</label> </summary>
 </details>
-
-<details><summary>[] Clase _11_Intro_Testing</summary>
+<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_6_Excepciones</label></summary>
+</details>
+<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_7_Intro_POO</label> </summary>
+</details>
+<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_8_Iteradores_y_excepciones</label> </summary>
+</details>
+<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_9_Intro_DS</label> </summary>
+</details>
+<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_10_Pandas_Copa_America</label></summary>
+</details>
+<details><summary><input type="checkbox" id="scales" name="scales" ><label for="scales">Clase_11_Intro_Testing</label></summary>
 </details>
 
 
