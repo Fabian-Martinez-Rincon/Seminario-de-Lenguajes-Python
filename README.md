@@ -298,7 +298,7 @@ Un módulo puede definir funciones, clases y variables. Entonces, cuando el int�
 </details>
 
 
-<details open><summary> Clase_4_Archivos </summary>
+<details ><summary> Clase_4_Archivos </summary>
 
 ---
 
@@ -481,7 +481,49 @@ archivo_csv.close()
 </details>
 
 
-<details><summary> Clase_5_Repaso_archivos </summary><br>
+<details open><summary> Clase_5_Repaso_archivos </summary><br>
+
+### import os
+
+```python
+import os
+os.getcwd()
+#'c:\\Users\\fabian\\Desktop\\Seminario-de-Lenguajes-Python\\Teorias\\Clase_4_Archivos'
+ruta_completa = os.path.join(os.getcwd(), ruta_archivos)
+
+archivo_netflix = os.path.join(ruta_completa, "netflix_titles.csv")
+titulos_2021 = os.path.join(ruta_completa, "titulos2021.csv")
+```
+
+### with
+
+```Python
+# Abro el dataset
+with open(archivo_netflix, encoding='utf-8') as data_set:
+    reader = csv.reader(data_set, delimiter=',')
+    # Creo el archivo .csv de salida
+    with open(titulos_2021, 'w', encoding='utf-8') as salida:
+        writer = csv.writer(salida)
+
+        # Agrego el encabezado
+        writer.writerow(reader.__next__())
+
+        # Escribo sólo los titulos estrenados en 2021
+        writer.writerows(filter(lambda titulo: titulo[7] == '2021', reader))
+```
+
+### Ejemplo Raro
+
+```Python
+from collections import Counter
+archivo = open(titulos_2021, 'r', encoding='utf-8')
+csv_reader = csv.reader(archivo, delimiter=',')
+paises = map(lambda fila: fila[5], csv_reader )
+top_5 = Counter(paises).most_common(5)
+print(f'Los 5 paises con más titulos: \n {dict(top_5)}')
+
+```
+
 </details>
 
 
