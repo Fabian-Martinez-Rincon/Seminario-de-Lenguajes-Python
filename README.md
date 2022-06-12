@@ -277,6 +277,19 @@ print(dobles) # <map object at 0x00000144B50EDAB0>
 print(pares)  # [2, 4, 6]
 ```
 
+### Modulo `sys`
+
+- Entre otras cosas, define:
+    - `exit([arg])`: sale del programa actual;
+    - `path`: las rutas donde buscar los módulos a cargar;
+    - `platform`: contiene información sobre la plataforma.
+
+## Tarea
+
+- Averiguar cuándo un módulo se denomina **__main__**,
+
+Un módulo puede definir funciones, clases y variables. Entonces, cuando el intérprete ejecuta un módulo, el variable \_\_name__ se establecerá como \_\_main__ si el módulo que se está ejecutando es el programa principa
+
 </details>
 
 
