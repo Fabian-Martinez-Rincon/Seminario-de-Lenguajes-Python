@@ -1,0 +1,1 @@
+[{"nombre": "William Campbell", "ciudad": "La Plata", "ref": "www.instagram.com/williamcampbellok"}, {"nombre": "Buendia", "ciudad": "La Plata", "ref": "https://buendia.bandcamp.com/"}, {"nombre": "L\u00famine", "ciudad": "La Plata", "ref": "https://www.instagram.com/luminelp/"}]

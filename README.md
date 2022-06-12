@@ -47,7 +47,8 @@
 <br>
 
 <details ><summary>Clase_1_Introduccion</summary> 
-<br>
+
+---
 
 ```Python
 cadena = "dos"
@@ -71,7 +72,9 @@ print(f"{x:2d} {x*x:3d} {x*x*x:4d}")
 </details>
 
 
- <details><summary> Clase_2_Secuencias_Funciones </summary><br>
+<details><summary> Clase_2_Secuencias_Funciones </summary>
+
+---
 
 #### Cargar una Lista desde teclado
 
@@ -152,7 +155,9 @@ Operaciones con conjuntos
 </details>
 
 
-<details><summary> Clase_3_Argumentos_lambda </summary><br>
+<details><summary> Clase_3_Argumentos_lambda </summary>
+
+---
 
 ### Numero variable de parametros (Tupla)
 
@@ -293,7 +298,186 @@ Un módulo puede definir funciones, clases y variables. Entonces, cuando el int�
 </details>
 
 
-<details><summary> Clase_4_Archivos </summary><br>
+<details open><summary> Clase_4_Archivos </summary>
+
+---
+
+# El módulo \_\_main__
+
+- Las instrucciones ejecutadas en el nivel de llamadas superior del intérprete, ya sea desde un script o interactivamente, se consideran parte del módulo llamado **\_\_main__**, por lo tanto tienen su propio espacio de nombres global.
+
+```Python
+#módulo funciones
+def uno():
+    print("uno")
+    print(f"El nombre de este módulo es {__name__}")
+
+if __name__ == "__main__":
+    uno()
+```
+
+### Función `open`
+
+```python
+	open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+```
+- **encoding**: sólo para modo texto. Por defecto, la codificación establecida en las [configuraciones del sistema](https://docs.python.org/3.8/library/codecs.html#module-codecs) 
+- **errors**: sólo en modo texto. Es una cadena que dice qué hacer ante un error en la codificación/decodificación. ("strict", "ignore", ..)
+- **newline**: sólo modo texto. Puede ser: None, '', '\\n', '\\r', y '\\r\\n'.
+
+```python
+
+archi = open("pp.xxx", "r+", encoding="UTF-8")
+
+import locale
+locale.getpreferredencoding()
+
+
+import os
+
+ruta = os.path.dirname(os.path.realpath("."))
+ruta_completa = os.path.join(ruta, "ejemplo","clase4", "archivo.txt")
+```
+
+### Almaceno datos en un archivo
+
+```Python
+f = open('archivo.txt', 'w')
+print(f.write('Hola, xxxxxx'))
+print(f.write('Mundo!'))
+
+f.close()
+```
+
+### Leemos datos en un archivo
+
+```Python
+f = open('archivo.txt', 'r')
+x = f.read(4)
+print(f.read())
+x
+```
+
+## Json
+
+Cuando quiero guardar información que tiene una estructura
+
+- Pensemos en estos ejemplos:
+
+	- Los puntajes cada vez que juego a un juego. Información tipo: nombre jugador,  puntaje, fecha.
+	- El banco de preguntas: tema, enunciado, respuesta correcta.
+	- Los Python Plus de los estudiantes por turnos: turno, nombre, apellido, num_alumno, cantidad_puntos, etc.
+
+- Es un formato de intercambio de datos muy popular. Por ejemplo:
+
+```json
+	{"equipo": "Astralis",
+	 "e-sport": "CSGO",
+	 "pais": "Dinamarca"}
+    o 
+    [{"equipo": "Astralis",
+	  "e-sport": "CSGO",
+	  "pais": "Dinamarca"},
+      {"equipo": "9z",
+	  "e-sport": "CSGO",
+	  "pais": "Argentina"}]
+```
+- [+Info](https://www.json.org/json-en.html)
+
+```Python
+import json
+```
+
+- Permite serializar objetos.
+    - serializamos con: `dumps()` y `dump()`.
+    - desserializamos con: `loads()` y `load()`.
+
+### Implementación
+
+```Python
+import json
+
+archivo = open("bandas.txt", "r")
+datos = json.load(archivo)
+print(datos)
+datos_a_mostrar = json.dumps(datos, indent=4)
+print(datos_a_mostrar)
+archivo.close()
+```
+
+## CSV
+
+- CSV (Comma Separated Values).
+- Es un formato muy común para importar/exportar desde/hacia hojas de cálculo y bases de datos.
+
+- **csv.reader**: crea un objeto "iterador" que nos permite recorrer las líneas del archivo.
+
+```Python
+import csv
+
+ruta = os.path.dirname(os.path.realpath("."))
+ruta_archivo = os.path.join(ruta, "Clase_4_Archivos","netflix_titles.csv")
+print(ruta_archivo)
+
+archivo = open(ruta_archivo, "r")
+csvreader = csv.reader(archivo, delimiter=',')
+
+#encabezado = csvreader.__next__()
+encabezado = next(csvreader)
+print(encabezado)
+
+archivo.close()
+```
+
+<table >
+<tr>
+<td>  <div align="center">Leemos el contenido completo</div> </td> 
+</tr>
+
+ <tr>
+<td> 
+
+```Python
+archivo = open(ruta_archivo, "r",encoding="UTF-8")
+csvreader = csv.reader(archivo, delimiter=',')
+
+#encabezado = csvreader.__next__()
+encabezado = next(csvreader)
+print(encabezado)
+
+for linea in csvreader:
+    if linea[1] == "TV Show" and linea[5] == "Argentina": 
+        print(f"{linea[2]:<40} {linea[3]}")
+
+archivo.close()
+```
+
+
+ </td> 
+</tr>
+ 
+<tr>
+
+<td>
+
+```Python
+archivo = open(ruta_archivo, "r",encoding="UTF-8")
+csvreader = csv.reader(archivo, delimiter=',')
+
+shows_ar = filter(lambda x:  x[5] == "Argentina" and x[1] == "TV Show", csvreader)
+for elem in shows_ar:
+    print(f"{elem[2]:<40} {elem[3]}")
+    
+print(shows_ar)
+archivo.close()
+```
+
+</td>
+
+</tr>
+
+</table>
+
 </details>
 
 
