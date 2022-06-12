@@ -44,11 +44,7 @@
 
 ### 📖 Resumenes de cada tema:
 
-
-
 <br>
-
-
 
 <details ><summary>Clase_1_Introduccion</summary> 
 <br>
@@ -75,9 +71,7 @@ print(f"{x:2d} {x*x:3d} {x*x*x:4d}")
 </details>
 
 
-
-
-<details><summary> Clase_2_Secuencias_Funciones </summary><br>
+ <details><summary> Clase_2_Secuencias_Funciones </summary><br>
 
 #### Cargar una Lista desde teclado
 
@@ -126,10 +120,163 @@ def mi_musica(dicci_musica, nombre, tipo_musica="nacional"):
 mi_musica(nombre="vivi", tipo_musica="internacional", dicci_musica=dicci_musica)
 ```
 
+#### Dato
+
+```Python
+def agrego(a, L=[]):
+    L.append(a)
+    return L
+print(agrego(1))
+print(agrego(2))
+print(agrego(3))
+```
+
+#### Conjunto
+
+Un conjunto es una colección de datos heterogéna, desordenada, NO indexada y sin elementos duplicados
+
+```Python
+bandas = {"AC/DC", "Metallica", "Greta Van Fleet", "Soda Stéreo", "Los Piojos"}
+for elem in bandas:
+    print(elem)
+```
+
+Operaciones con conjuntos
+- Pensemos en las operaciones matemáticas sobre conjuntos:
+    - in: retonar si un elemento pertenece o no a un conjunto.
+    - |: unión entre dos conjuntos.
+    - &: intersección entre dos conjuntos.
+    - -: diferencia de conjuntos.
+
+
 </details>
 
 
 <details><summary> Clase_3_Argumentos_lambda </summary><br>
+
+### Numero variable de parametros (Tupla)
+
+#### `args` es una tupla que representa a los parámetros pasados.
+
+```Python
+def imprimo(*args):
+    """ Esta función imprime los argumentos y sus tipos"""
+    for valor in args:
+        print(f"{valor} es de tipo {type(valor)}")
+imprimo([1,2], "hola", 3.2) 
+```
+
+### Numero variable de parametros (Diccionario)
+
+#### `args` es una diccionario que representa a los parámetros pasados.
+
+```Python
+def imprimo_otros_valores(**kwargs):
+    """ ..... """
+    for clave, valor in kwargs.items():
+        print(f"{clave} es {valor}")
+imprimo_otros_valores(banda1= 'Nirvana', banda2="Foo Fighters", banda3="AC/DC")
+```
+
+#### `global` y `nonlocal` permiten acceder a varables no locales a una función.
+
+```Python
+x = 0
+def uno():
+    x = 10
+    def uno_uno():
+        nonlocal x
+        #global x
+        x = 100
+        print(f"En uno_uno: {x}")
+    uno_uno()
+    print(f"En uno: {x}") 
+uno()
+print(f"En ppal: {x}") 
+```
+
+### Atributos en Funciones
+
+```Python
+def calculo_promedio(notas):
+    """ Esta función calcula el promedio de las notas recibida por parámetro.
+    notas: es un diccionario de forma nombre_estudiante: nota
+    """
+    suma = 0
+    for estu in notas:
+        suma += notas[estu]
+    promedio = 0 if len(notas)==0 else suma/len(notas)    
+    return promedio
+
+print(calculo_promedio.__doc__) 
+print(calculo_promedio.__defaults__)
+print(calculo_promedio.__name__)
+```
+
+- **funcion.\_\_doc__**: es el **docstring**.
+- **funcion.\_\_name__**: es una cadena con el nombre la función.
+- **funcion.\_\_defaults__**: es una tupla con los valores por defecto de los parámetros opcionales.
+
+
+### Retorna una lista con las palabras en orden alfabetico 
+
+```Python
+def ordeno2(cadena:str):
+    """ Implementación usando sorted"""
+    lista = cadena.split()
+    return sorted(lista, key=str.lower)
+print(ordeno2("Hoy puede ser un gran día. "))
+```
+
+### Funciones Lambda
+
+<h3>
+
+```Python
+ lambda parametros : expresion 
+```
+
+</h3>
+
+
+### Ejemplo
+
+```Python
+def make_incrementor(n):
+    return lambda x: x + n
+
+f = make_incrementor(2)
+g = make_incrementor(6)
+
+print(f(42), g(42))
+print(make_incrementor(22)(33))
+
+# 44 48
+# 55
+```
+
+### Función `map`
+
+```Python
+def doble(x):
+    return 2*x
+lista  = [1, 2, 3, 4, 5, 6, 7]
+dobles = list(map(doble, lista))
+print(dobles)
+# [2, 4, 6, 8, 10, 12, 14]
+```
+
+### Función `map`
+
+```Python
+lista  = [1, 2, 3, 4, 5, 6, 7]
+dobles = map(lambda x: 2*x, lista)
+pares = list(filter(lambda x: x%2 == 0, lista))
+
+print(dobles) # <map object at 0x00000144B50EDAB0>
+print(pares)  # [2, 4, 6]
+```
+
 </details>
 
 
