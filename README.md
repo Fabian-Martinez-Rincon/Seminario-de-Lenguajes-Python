@@ -319,7 +319,7 @@ if __name__ == "__main__":
 ### Función `open`
 
 ```python
-	open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
 ```
 - **encoding**: sólo para modo texto. Por defecto, la codificación establecida en las [configuraciones del sistema](https://docs.python.org/3.8/library/codecs.html#module-codecs) 
 - **errors**: sólo en modo texto. Es una cadena que dice qué hacer ante un error en la codificación/decodificación. ("strict", "ignore", ..)
@@ -399,9 +399,7 @@ import json
 
 archivo = open("bandas.txt", "r")
 datos = json.load(archivo)
-print(datos)
 datos_a_mostrar = json.dumps(datos, indent=4)
-print(datos_a_mostrar)
 archivo.close()
 ```
 
@@ -412,38 +410,19 @@ archivo.close()
 
 - **csv.reader**: crea un objeto "iterador" que nos permite recorrer las líneas del archivo.
 
+### Leemos el contenido completo
+
 ```Python
 import csv
 
 ruta = os.path.dirname(os.path.realpath("."))
 ruta_archivo = os.path.join(ruta, "Clase_4_Archivos","netflix_titles.csv")
-print(ruta_archivo)
 
-archivo = open(ruta_archivo, "r")
-csvreader = csv.reader(archivo, delimiter=',')
-
-#encabezado = csvreader.__next__()
-encabezado = next(csvreader)
-print(encabezado)
-
-archivo.close()
-```
-
-<table >
-<tr>
-<td>  <div align="center">Leemos el contenido completo</div> </td> 
-</tr>
-
- <tr>
-<td> 
-
-```Python
 archivo = open(ruta_archivo, "r",encoding="UTF-8")
 csvreader = csv.reader(archivo, delimiter=',')
 
 #encabezado = csvreader.__next__()
 encabezado = next(csvreader)
-print(encabezado)
 
 for linea in csvreader:
     if linea[1] == "TV Show" and linea[5] == "Argentina": 
@@ -452,13 +431,7 @@ for linea in csvreader:
 archivo.close()
 ```
 
-
- </td> 
-</tr>
- 
-<tr>
-
-<td>
+### Otra forma de hacer lo de arriba
 
 ```Python
 archivo = open(ruta_archivo, "r",encoding="UTF-8")
@@ -472,11 +445,38 @@ print(shows_ar)
 archivo.close()
 ```
 
-</td>
+### Creamos un Csv desde un Txt
 
-</tr>
+```Python
+import csv
+import json
 
-</table>
+archivo = open("bandas.txt")
+archivo_csv = open("bandas.csv", "w")
+
+bandas = json.load(archivo)
+
+writer = csv.writer(archivo_csv)
+writer.writerow(["Nombre", "Ciudad de procedencia", "Refencias"])
+for banda in bandas:
+    writer.writerow([banda["nombre"], banda["ciudad"], banda["ref"]])
+
+archivo.close()
+archivo_csv.close()
+#type(writer)
+```
+
+### DoctReader
+
+```Python
+archivo_cvs = open("bandas.csv", "r")
+csvreader = csv.DictReader(archivo_cvs, delimiter=',')
+
+for linea in csvreader:
+    print(linea["Nombre"])
+
+archivo_csv.close()
+```
 
 </details>
 
