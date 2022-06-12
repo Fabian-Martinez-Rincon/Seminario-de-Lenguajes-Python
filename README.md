@@ -39,14 +39,19 @@
 
 </div>
 
+---
 
-<legend>Lista de Tareas mas Resumen:</legend>
+
+### 📖 Resumenes de cada tema:
+
+
 
 <br>
 
-- [x] Clase_1_Introduccion
 
-<details open><summary>Resumen</summary> 
+
+<details ><summary>Clase_1_Introduccion</summary> 
+<br>
 
 ```Python
 cadena = "dos"
@@ -69,55 +74,94 @@ print(f"{x:2d} {x*x:3d} {x*x*x:4d}")
 
 </details>
 
-- [x] Clase_2_Secuencias_Funciones
 
 
-<details><summary> Resumen </summary>
+
+<details><summary> Clase_2_Secuencias_Funciones </summary><br>
+
+#### Cargar una Lista desde teclado
+
+```Python
+def Ingresar(lista_de_notas:list[int]):
+    nota = int(input("Ingresá una nota (-1 para finalizar)"))
+    while nota != -1:
+        lista_de_notas.append(nota)
+        nota = int(input("Ingresá una nota (-1 para finalizar)"))
+    return lista_de_notas
+
+lista_de_notas:list[int] = []
+lista_de_notas=Ingresar(lista_de_notas)
+print(lista_de_notas)
+
+```
+
+``Las tuplas no se pueden modificar``
+
+#### Cargar un Diccionario desde teclado
+
+```Python
+def ingreso_notas():
+""" Esta función retorna un diccionario con los nombres y notas de estudiantes """
+    nombre = input("Ingresa un nombre (<FIN> para finalizar)")
+    dicci = {}
+    while nombre != "FIN":
+        nota = int(input(f"Ingresa la nota de {nombre}"))
+        dicci[nombre] = nota
+        nombre = input("Ingresa un nombre (<FIN> para finalizar)")
+    return dicci
+notas_de_estudiantes = ingreso_notas()
+notas_de_estudiantes
+```
+
+#### Los parametros pueden tener valores por defecto
+
+```Python
+def mi_musica(dicci_musica, nombre, tipo_musica="nacional"):
+    if nombre in dicci_musica:
+        interpretes = dicci_musica[nombre]
+        for elem in interpretes[tipo_musica]:
+            print(elem)
+    else:
+    print(f"¡Hola {nombre}! No tenés registrada música en esta colección")
+mi_musica(nombre="vivi", tipo_musica="internacional", dicci_musica=dicci_musica)
+```
+
 </details>
 
-- [] Clase_3_Argumentos_lambda
 
-<details><summary> Resumen </summary>
+<details><summary> Clase_3_Argumentos_lambda </summary><br>
 </details>
 
-- [] Clase_4_Archivos
 
-<details><summary> Resumen </summary>
+<details><summary> Clase_4_Archivos </summary><br>
 </details>
 
-- [] Clase_5_Repaso_archivos
 
-<details><summary> Resumen </summary>
+<details><summary> Clase_5_Repaso_archivos </summary><br>
 </details>
 
-- [] Clase_6_Excepciones
 
-<details><summary> Resumen </summary>
+<details><summary> Clase_6_Excepciones </summary><br>
 </details>
 
-- [] Clase_7_Intro_POO
 
-<details><summary> Resumen </summary>
+<details><summary> Clase_7_Intro_POO </summary><br>
 </details>
 
-- [] Clase_8_Iteradores_y_excepciones
 
-<details><summary> Resumen </summary>
+<details><summary> Clase_8_Iteradores_y_excepciones </summary><br>
 </details>
 
-- [] Clase_9_Intro_DS
 
-<details><summary> Resumen </summary>
+<details><summary> Clase_9_Intro_DS </summary><br>
 </details>
 
-- [] Clase_10_Pandas_Copa_America
 
-<details><summary> Resumen </summary>
+<details><summary> Clase_10_Pandas_Copa_America </summary><br>
 </details>
 
-- [] Clase_11_Intro_Testing
 
-<details><summary> Resumen </summary>
+<details><summary> Clase_11_Intro_Testing </summary><br>
 </details>
 
 
