@@ -636,6 +636,104 @@ Se ejecuta unicamente si no hubo except, podemos imprimir un mensaje indicando q
 
 
 <details><summary> Clase_7_Intro_POO </summary><br>
+
+### Objeto Jugador
+
+- El método **\_\_init__() se invoca automáticamente** al crear el objeto.
+
+```Python
+class Jugador():
+    """ Define la entidad que representa a un jugador en el juego"""
+    def __init__(self, nom="Tony Stark", nic="Ironman"):
+        self.nombre = nom
+        self.nick = nic
+        self.puntos = 0
+    #Métodos
+    def incrementar_puntos(self, puntos):
+        self.puntos += puntos
+
+tony = Jugador()
+bruce = Jugador("Bruce Wayne", "Batman")
+print(tony.nombre)
+print(bruce.nombre)
+```
+
+### Objetos SuperHeroe
+
+<table >
+
+<tr>
+<td> SuperHeroe</td> <td> imprimo_villanos</td>
+</tr>
+
+<tr>
+<td>
+ 
+```Python
+class SuperHeroe():
+    """ Esta clase  define a un superheroe 
+    villanos:  representa a los enemigos 
+    de todos los superhéroes
+    """  
+    villanos = []
+        
+    def __init__(self, nombre, alias):
+        self.nombre = nombre
+        self.enemigos = []
+                
+    def get_nombre(self):
+        return self.nombre
+  
+    def get_enemigos(self):
+        return self.enemigos
+        
+    def agregar_enemigo(self, otro_enemigo):
+        "Agrega un enemigo a los enemigos del superhéroe"
+        
+        self.enemigos.append(otro_enemigo)
+        SuperHeroe.villanos.append(otro_enemigo)
+```
+
+
+</td>
+<td>
+
+```Python
+# OJO que esta función  está FUERA de la clase
+def imprimo_villanos(nombre, lista_de_villanos):
+    "imprime  la lista de todos los villanos de nombre"
+    print("\n"+"*"*40)
+    print(f"Los enemigos de {nombre}")
+    print("*"*40)
+    for malo in lista_de_villanos:
+        print(malo)
+        
+batman = SuperHeroe( "Bruce Wayne", "Batman")
+ironman = SuperHeroe( "Tony Stark", "ironman")
+
+batman.agregar_enemigo("Joker")
+batman.agregar_enemigo("Pinguino")
+batman.agregar_enemigo("Gatubela")
+
+ironman.agregar_enemigo("Whiplash")
+ironman.agregar_enemigo("Thanos")
+```
+
+ 
+</td>
+</tr>
+ 
+</table>
+
+
+
+```Python
+imprimo_villanos(batman.get_nombre(), batman.get_enemigos())
+imprimo_villanos(ironman.get_nombre(), ironman.get_enemigos())
+
+imprimo_villanos("todos los superhéroes", SuperHeroe.villanos)
+```
+
 </details>
 
 
