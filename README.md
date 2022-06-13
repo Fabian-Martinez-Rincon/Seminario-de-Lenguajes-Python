@@ -719,6 +719,7 @@ ironman.agregar_enemigo("Whiplash")
 ironman.agregar_enemigo("Thanos")
 ```
 
+
  
 </td>
 </tr>
@@ -733,6 +734,231 @@ imprimo_villanos(ironman.get_nombre(), ironman.get_enemigos())
 
 imprimo_villanos("todos los superhéroes", SuperHeroe.villanos)
 ```
+
+### Python nos permite hacer lo siguiente (No es buena Practica)
+
+```Py
+class SuperHeroe:
+    pass
+
+tony = SuperHeroe()  
+tony.nombre = "Tony Stark"
+tony.alias = "Ironman"
+tony.soy_Ironman = lambda : True if tony.alias == "Ironman" else False
+
+tony.soy_Ironman()
+tony.nombre
+
+del tony.nombre
+tony.nombre
+```
+
+### No es publico
+
+```Python
+class Jugador():
+    "Define la entidad que representa a un jugador en el juego"
+    def __init__(self, nom="Tony Stark", nic="Ironman"):
+        self._nombre = nom
+        self.nick = nic
+        self.puntos = 0
+    #Métodos
+    def incrementar_puntos(self, puntos):
+        self.puntos += puntos
+
+tony = Jugador()
+print(tony._nombre)
+```
+
+### No es taaan publico
+
+```Python
+class CodigoSecreto:
+    '''¿¿¿Textos con clave??? '''
+
+    def __init__(self, texto_plano, clave_secreta):
+        self.__texto_plano = texto_plano
+        self.__clave_secreta = clave_secreta
+
+    def desencriptar(self, clave_secreta):
+        '''Solo se muestra el texto si la clave es correcta'''
+        
+        if clave_secreta == self.__clave_secreta:
+            return self.__texto_plano
+        else:
+            return ''
+```
+
+# Entonces... respecto a lo público y privado
+
+## Respetaremos las convenciones
+
+### Todo identificador que comienza con **"_"** será considerado privado.
+
+# Algunos métodos especiales
+
+Mencionamos antes que los "__" son especales en Python. Por ejemplo, podemos definir métodos con estos nombres:
+
+- \_\_lt__, \_\_gt__, \_\_le__, \_\_ge__ 
+- \_\_eq__, \_\_ne__
+
+En estos casos, estos métodos nos permiten comparar dos objetos con los símbolos correspondientes:
+
+- x<y invoca  x.\_\_lt\_\_(y),
+- x<=y invoca x.\_\_le\_\_(y), 
+- x==y invoca x.\_\_eq\_\_(y), 
+- x!=y invoca x.\_\_ne\_\_(y),
+- x>y invoca x.\_\_gt\_\_(y), 
+- x>=y invoca x.\_\_ge\_\_(y).
+
+```Python
+class Jugador:
+    """ .. """
+    def __init__(self, nom="Tony Stark", nic="Ironman"):
+        self._nombre = nom
+        self.nick = nic
+        self.puntos = 0
+    def __lt__(self, otro):
+        return (self._nombre < otro._nombre)
+    def __eq__(self, otro):
+        return (self.nick == otro.nick)
+    def __ne__(self, otro):
+        return (self._nombre != otro._nombre)
+
+tony = Jugador()
+bruce = Jugador("Bruce Wayne", "Batman")
+
+if bruce < tony:
+    print("Mmmm.... Algo anda mal..")
+print("Son iguales" if tony == bruce else "Son distintos")
+
+# Mmmm.... Algo anda mal..
+# Son distintos
+
+```
+
+### El método \_\_str__
+
+```Python
+class Jugador:
+    """ .. """
+    def __init__(self, nom="Tony Stark", nic="Ironman"):
+        self._nombre = nom
+        self.nick = nic
+        self.puntos = 0
+    def __str__(self):
+        return (f"{self._nombre}, mejor conocido como {self.nick}")
+    def __lt__(self, otro):
+        return (self._nombre < otro._nombre)
+    def __eq__(self, otro):
+        return (self.nick == otro.nick)
+    def __ne__(self, otro):
+        return (self._nombre != otro._nombre)
+tony = Jugador()
+bruce = Jugador("Bruce Wayne", "Batman")
+
+print(tony)
+print(tony if tony == bruce else bruce)
+```
+
+---
+
+## Herencia
+
+```Python
+class Jugador:
+    def __init__(self, nombre, juego="Tetris", tiene_equipo=False, equipo=None):
+            self.nombre = nombre
+            self.juego = juego
+            self.tiene_equipo = tiene_equipo
+            self.equipo = equipo
+    def jugar(self):
+            if self.tiene_equipo:
+                    print (f"{self.nombre} juega en el equipo {self.equipo} al {self.juego}")
+            else:
+                    print(f"{self.nombre} juega solo al {self.juego}")
+
+class JugadorDeFIFA(Jugador):
+    def __init__(self, nombre, equipo):
+            Jugador.__init__(self, nombre, "FIFA", True, equipo)
+
+class JugadorDeLOL(Jugador):
+    def __init__(self, nombre, equipo):
+            Jugador.__init__(self, nombre, "LOL")
+            
+nico = JugadorDeFIFA('Nico Villalba', "Guild Esports")
+nico.jugar()
+faker = JugadorDeLOL("Faker", "SK Telecom")
+faker.jugar()
+
+# Nico Villalba juega en el equipo Guild Esports al FIFA
+# Faker juega solo al LOL
+```
+
+### Herencia Múltiple
+
+```Python
+class Jugador:
+    def __init__(self, nombre, juego="No definido", tiene_equipo= False, equipo=None):
+        self.nombre = nombre
+        self.juego = juego
+        self.tiene_equipo = tiene_equipo
+        self.equipo = equipo
+        
+    def jugar(self):
+        if self.tiene_equipo:
+            print (f"{self.nombre} juega en el equipo {self.equipo} al {self.juego}")
+        else:
+            print(f"{self.nombre} juega solo al {self.juego}")
+
+class Deportista:
+    def __init__(self, nombre, equipo = None):
+        self.nombre = nombre
+        self.equipo = equipo
+   
+    def jugar(self): 
+        print (f"Mi equipo es {self.equipo}")
+class JugadorDeFIFA(Jugador, Deportista):
+    def __init__(self, nombre, equipo):
+        Jugador.__init__(self, nombre, "PS4", True, equipo)
+        Deportista.__init__(self,nombre, equipo)
+
+class JugadorDeLOL(Deportista, Jugador):
+    def __init__(self, nombre, equipo):
+        Jugador.__init__(self, nombre, "LOL")
+        Deportista.__init__(self, nombre, equipo)
+nico = JugadorDeFIFA('Nico Villalba', "Guild Esports")
+nico.jugar()
+faker = JugadorDeLOL("Faker", "SK Telecom")
+faker.jugar()
+```
+
+- Ambas clases bases tienen definido un método **jugar**.
+    - En este caso, se toma el método de la clase más a la **izquierda** de la lista.
+
+- Por lo tanto, es MUY importante el orden en que se especifican las clases bases. 
+
+
+# Resumiendo...
+
+## Objetos  y clases
+
+- La  **clase** define las propiedades y los métodos de los objetos.
+
+- Los **objetos** son instancias de una clase.
+
+- Cuando se crea un objeto, se ejecuta el método **\_\_init()__** que permite inicializar el objeto.
+
+- La definición de la clase especifica qué partes son privadas y cuáles públicas.
+
+
+# Mensajes y métodos
+
+TODO el procesamiento en este modelo es activado por mensajes entre objetos.
+
+- El **mensaje** es el modo de comunicación entre los objetos. Cuando se invoca una función de un objeto, lo que se está haciendo es **enviando un mensaje** a dicho objeto.
+- El **método** es la función que está asociada a un objeto determinado y cuya ejecución sólo puede desencadenarse a través del envío de un mensaje recibido.
+
 
 </details>
 
