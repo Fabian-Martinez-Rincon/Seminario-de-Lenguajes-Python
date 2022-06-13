@@ -48,6 +48,7 @@
 
 <details ><summary>Clase_1_Introduccion</summary> 
 
+
 ---
 
 ```Python
@@ -73,6 +74,7 @@ print(f"{x:2d} {x*x:3d} {x*x*x:4d}")
 
 
 <details><summary> Clase_2_Secuencias_Funciones </summary>
+
 
 ---
 
@@ -481,7 +483,9 @@ archivo_csv.close()
 </details>
 
 
-<details><summary> Clase_5_Repaso_archivos </summary><br>
+<details><summary> Clase_5_Repaso_archivos </summary>
+
+---
 
 ### import os
 
@@ -532,7 +536,9 @@ print(f'Los 5 paises con más titulos: \n {dict(top_5)}')
 </details>
 
 
-<details ><summary> Clase_6_Excepciones </summary><br>
+<details ><summary> Clase_6_Excepciones </summary>
+
+---
 
 ## PySimpleGUI
 
@@ -635,7 +641,9 @@ Se ejecuta unicamente si no hubo except, podemos imprimir un mensaje indicando q
 </details>
 
 
-<details><summary> Clase_7_Intro_POO </summary><br>
+<details><summary> Clase_7_Intro_POO </summary>
+
+---
 
 ### Objeto Jugador
 
@@ -963,19 +971,176 @@ TODO el procesamiento en este modelo es activado por mensajes entre objetos.
 </details>
 
 
-<details><summary> Clase_8_Iteradores_y_excepciones </summary><br>
+<details><summary> Clase_8_Iteradores_y_excepciones </summary>
+
+---
+
+## Super y Herencia Múltiple
+
+```Python
+class A():
+    def __init__(self):
+        print("Soy A")
+
+class B():
+    def __init__(self):
+        print("Soy B")
+
+class C(B, A):
+    def __init__(self):
+        print("Soy C")
+        super().__init__()
+obj = C()
+
+# Soy C
+# Soy B
+C.__mro__
+# (__main__.C, __main__.B, __main__.A, object)
+```
+
+### Decoradores
+
+```Python
+def decorador(funcion):
+    def funcion_interna():
+        print("Antes de  invocar a la función.")
+        funcion()
+        print("Después de invocar a la función.")
+    return funcion_interna
+
+@decorador
+def decimos_hola():
+    print("Hola!")
+
+decimos_hola()
+
+# Antes de  invocar a la función.
+# Hola!
+# Después de invocar a la función.
+```
+
+### Excepciones Personalizadas
+
+```Python
+try:
+    raise ExcepcionRara("Hola mundo")
+    
+except ExcepcionRara as e:
+    print(f"Ups! Se produjo la excepción rara!! {e}")
+```
+
+### Algunas convenciones
+
+```Python
+class Error(Exception):
+    """Base class for exceptions in this module."""
+    pass
+
+class InputError(Error):
+    """Exception raised for errors in the input.
+    Attributes:
+        expression -- input expression in which the error occurred
+        message -- explanation of the error
+    """
+
+    def __init__(self, expression, message):
+        self.expression = expression
+        self.message = message
+
+try:
+    raise InputError("xxx","hola")
+except InputError as e: 
+    print(e)
+#('xxx', 'hola')
+```
+
 </details>
 
 
-<details><summary> Clase_9_Intro_DS </summary><br>
+<details><summary> Clase_9_Intro_DS </summary>
+
+---
+
+### Pandas
+
+```Python
+import os
+import pandas as pd
+
+archivo_netflix = os.path.join(os.getcwd(),  "netflix_titles.csv")
+data_set = pd.read_csv(archivo_netflix, encoding='utf-8')
+print(data_set)
+```
+
+### Algunas operaciones
+- len(data_set) `Cuantas filas?`
+- data_set.shape `Cuantas filas y columnas?`
+- data_set.columns `Cuales son las columnas`
+- data_set["type"] `Filtrar por la columna type`
+- data_set["type"].unique() `Que no aparezcan valores repetidos`
+- columna = data_set["type"] `Cuantos contenidos hay de cada tipo`
+
+### DataFrame
+
+```Python
+datos = {
+        'tenista': ['Novak Djokovic', 'Rafael Nadal', 'Roger Federer', 'Ivan Lendl', 'Pete Sampras', 'John McEnroe', 'Bjorn Borg'],
+        'pais': ['Serbia', 'España', 'Suiza', 'República Checa','Estados Unidos', 'Estados Unidos', 'Suecia'],
+        'gran_slam': [20, 21, 20, 8, 14, 7, 11],
+        'master_1000': [37, 36, 28, 22, 11, 19, 15],
+        'otros': [5, 1, 6, 5, 5, 3, 2]
+         }
+labels_filas = ["H01", "H02", "H03", "H04", "H05", "H06", "H07"]
+df = pd.DataFrame(data=datos, index=labels_filas)
+print(df)
+tenistas = df["tenista"] 
+# Accedemos a los datos de una columna
+print(tenistas)
+# Accedemos a una fila
+fila = df.loc["H03"]  
+print(fila)
+# Vemos los datos de la primera fila
+df.iloc[0] 
+x = df.iloc[0]
+x["tenista"]
+# Un Conjunto
+# Por Filas
+df.loc["H03":"H06"]
+# Por Columnas
+df[["tenista","master_1000"]]
+# Un dato especifico
+el_mejor = df.at["H03","tenista"]
+```
+
+#### Que tenistas ganaron mas de 20g Gran Slam
+
+```Python
+df[df["gran_slam"] >= 20]
+```
+
+### Podemos guardar el dataframe en archivos
+
+```Python
+# En formato csv
+tv_shows_ar.to_csv("ShowsAR.csv")
+# En formato json
+tv_shows_ar.to_json("ShowsAR.json")
+```
+
 </details>
 
 
-<details><summary> Clase_10_Pandas_Copa_America </summary><br>
+<details><summary> Clase_10_Intro_Ds_Pandas </summary>
+
+---
+
 </details>
 
 
-<details><summary> Clase_11_Intro_Testing </summary><br>
+<details><summary> Clase_11_Intro_Testing </summary>
+
+---
+
 </details>
 
 
