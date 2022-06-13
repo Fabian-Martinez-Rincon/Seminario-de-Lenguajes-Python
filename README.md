@@ -532,8 +532,105 @@ print(f'Los 5 paises con más titulos: \n {dict(top_5)}')
 </details>
 
 
-<details><summary> Clase_6_Excepciones </summary><br>
+<details ><summary> Clase_6_Excepciones </summary><br>
 
+## PySimpleGUI
+
+- **read()**: devuelve una **tupla** con un **evento** y **los valores** de todos los elementos de entrada en la ventana.
+
+```Python
+import PySimpleGUI as sg      
+
+sg.Popup('Mi  primera ventanita', button_color=('black', 'red'))
+sg.PopupYesNo('Mi  primera ventanita', button_color=('black', 'green'))
+sg.PopupOKCancel('Mi  primera ventanita', button_color=('black', 'grey'))
+texto = sg.PopupGetText('Titulo', 'Ingresá algo')      
+sg.Popup('Resultados', 'Ingresaste el siguiente texto: ', texto)
+
+#Creamos una Ventana
+sg.Window(title="Hola Mundo!", layout=[[]], margins=(100, 50)).read()
+```
+
+### Leemos los eventos por teclado
+
+```Python
+import PySimpleGUI as sg
+
+layout = [ [sg.Text('Ingresá primer valor'), sg.InputText()],
+           [sg.Text('Ingresá segundo valor'), sg.InputText()],
+           [sg.Button('Ok'), sg.Button('Cancel')] ]
+
+window = sg.Window("Segunda Demo", layout, margins=(200, 150))
+
+while True:
+    event, values = window.read()
+
+    if event == "Cancel" or event == sg.WIN_CLOSED:
+        break
+    print('Datos ingresados: ', values)
+
+window.close()
+```
+
+### Layout: ¿cómo organizamos la UI?
+
+
+Representa al esquema  o  diseño de nuestra UI: **cómo se distribuyen los elementos en la UI**.
+
+```Python
+layout = [ [sg.Text('Ingresá primer valor'), sg.InputText()],
+           [sg.Text('Ingresá segundo valor'), sg.InputText()],
+           [sg.Button('Ok'), sg.Button('Cancel')] ]
+```
+### Elementos de la UI
+
+- Acá van algunos disponibles en PySimpleGUI
+
+	- Buttons: File Browse, Folder Browse, Color chooser, Date picker, etc.
+	- Checkbox, Radio Button, Listbox    
+	- Slider, Progress Bar 
+	- Multi-line Text Input, Scroll-able Output  
+	- Image, Menu, Frame, Column, Graph, Table
+
+## Excepciones
+
+### NameError
+
+```Python
+XX = 10
+try:
+    print(XX1)
+except NameError:
+    print("Usaste una variable que no está definida")
+```
+
+### KeyError
+
+```Python
+bandas = {
+    "William Campbell": {"ciudad": "La Plata", "ref": "www.instagram.com/williamcampbellok"},
+    "Buendia": {"ciudad": "La Plata", "ref":"https://buendia.bandcamp.com/"},
+    "Lúmine": {"ciudad": "La Plata", "ref": "https://www.instagram.com/luminelp/"},
+    "La Renga": {"ciudad": "XXXX", "ref": "ALGUNA"},
+    "Divididos": {"ciudad": "XXXX", "ref": "xxx"}}
+mis_bandas: = []
+nombre_banda =  input("Ingresá el nombre de la banda que te gusta")
+
+try:
+     mis_bandas.append({"banda": nombre_banda, "url":bandas[nombre_banda]})
+except KeyError:
+    print("Ingresaste el nombre de una banda que no tengo registrada")
+                            
+print(mis_bandas)
+```
+
+### finally
+
+Siempre se ejecuta al final del bloque Try. (Cosa que cuando tenemos una except no pasaria)
+
+### else
+
+Se ejecuta unicamente si no hubo except, podemos imprimir un mensaje indicando que no hubo inconvenientes
 
 </details>
 
