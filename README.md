@@ -1134,12 +1134,75 @@ tv_shows_ar.to_json("ShowsAR.json")
 
 ---
 
+
+
 </details>
 
 
 <details><summary> Clase_11_Intro_Testing </summary>
 
 ---
+
+Assert
+
+- Esta sentencia realiza una comprobación de una condición, y en caso de ser falsa, levanta la excepción `AssertionError` en forma general es `assert condicion`
+
+```Python
+assert sum([1, 2, 3]) == 6
+
+# Equivalente a 
+if sum([1, 2, 3]) != 6:
+    raise AssertionError()
+```
+
+### Pruebas
+
+```Python
+def calcular_promedio(lista):
+	cant_elementos = len(lista)
+	return 0 if cant_elementos == 0 else sum(lista)/cant_elementos
+assert calcular_promedio([1, 2, 3]) == 2.0, "Deberia dar 2.0"
+assert calcular_promedio([1]) == 1.0, "Deberia dar 1.0"
+assert calcular_promedio([]) == 0, "Deberia dar 0"
+
+def sumar(a, b):
+	assert type(a) == int, "El primer argumento debería ser un entero"
+	assert type(b) == int, "El segundo argumento debería ser un entero"
+	return a+b
+sumar(1,2)
+#sumar(15.2, 2)
+
+# "El primer argumento debería ser un entero"
+
+def test_case1():
+	assert calcular_promedio([]) == 0, "Debería dar 0"
+def test_case2():
+	assert calcular_promedio([1]) == 1.0, "Debería dar 1.0"
+def test_case3():
+	assert calcular_promedio([1, 2, 3]) == 2.0, "Debería dar 2.0"
+if __name__ == "__main__":
+	test_case1()
+	test_case2()
+	test_case3()
+	print("Tests pasados!") # Imprime esto
+```
+
+### Tipos de test
+
+- Test de unidad
+- Test de integración
+- Test de sistema
+- Test de aceptación
+
+## ¿Cómo definimos nuestros tests?
+
+- Debemos definir nuestros casos de prueba en clases que heredan de la clase unittest.TestCase.
+- Los métodos asociados a los test deben comenzar con el prefijo “test”, de manera tal que puedan ser reconocidos por el test runner.
+- En vez de utilizar la sentencia assert, cada test invoca a métodos definidos en unittest.TestCase tales como:
+    - assertEqual(), assertNotEqual(): para chequear por un resultado esperado.
+    - assertTrue(), assertFalse(): para verificar una condición.
+    - assertRaises(): para verificar si se levantó una excepción.
+    - La lista completa de métodos en la documentación oficial]
 
 </details>
 
