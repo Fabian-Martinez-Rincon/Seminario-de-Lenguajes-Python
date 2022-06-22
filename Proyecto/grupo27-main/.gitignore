@@ -1,0 +1,10 @@
+.env
+__pycache__
+__pycache__.*
+.vscode
+*.test.py
+processed_datasets/
+*/database/*
+!*/database/datasets/
+*.test.ipynb
+*.test.csv
