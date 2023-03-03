@@ -1,43 +1,35 @@
+<div align="center">
+
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Nomadiix/Seminario-de-Lenguajes-Python)
+[![GitHub stars](https://img.shields.io/github/stars/Nomadiix/Seminario-de-Lenguajes-Python)](https://github.com/FabianMartinez1234567/Seminario-de-Lenguajes-Python/stargazers/)
+[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Nomadiix/Seminario-de-Lenguajes-Python)](https://github.com/Nomadiix/Seminario-de-Lenguajes-Python)
+ </div>
+
 <h1 align="center"><img src="https://media.giphy.com/media/iQrDORShLPiqQ/giphy.gif" height="38" /> Seminario de Lenguajes Python </a>
  <img style="transform:scaleX(-1);" src="https://media.giphy.com/media/NLu0gwvgUMdxPtAHqS/giphy.gif" height="38" /></h1>
 
+
 <div align="center">
-<img src="https://media.giphy.com/media/KbUEFowFNOLSAsHT7u/giphy.gif" align="right" height="178" >
+  <img src="https://media.giphy.com/media/UTYINTtzZCs2DN4gsY/giphy.gif"/>
+ </div>
 
+---
 
-
-<table >
-<tr>
-<td> Teoria (Desafios y Tareas)</td> <td> Practica (Ejercicios)</td>
-</tr>
-<tr>
-<td>
- 
-- [Clase 1](/docs/Documentos/Clases/Clase1.md)
-- [Clase 1.1](/docs/Documentos/Clases/Clase1_1.md)
-- [Clase 2](/docs/Documentos/Clases/Clase2.md)
-- [Clase 3](/docs/Documentos/Clases/Clase3.md)
-- [Clase 3.1](/docs/Documentos/Clases/Clase3_1.md)
-- [Clase 4](/docs/Documentos/Clases/Clase4.md)
-- [Clase 6](/docs/Documentos/Clases/Clase6.md)
-- [Clase 7](/docs/Documentos/Clases/Clase7.md)
-
-</td>
-<td>
-
-
-- [Ahorcado](/docs/Documentos/Ahorcado.md)
-- [Practica 1](/docs/Documentos/Practica1.md)
-- [Practica 2](/docs/Documentos/Practica2.md)
-- [Practica 3](/docs/Documentos/Practica3.md)
-
- 
-</td>
-</tr>
- 
-</table>
-
-</div>
+- [🛡️ Defensa](/Defensa.md)
+- 📚 Teoria (Desafios y Tareas)
+    - [Clase 1](/docs/Documentos/Clases/Clase1.md)
+    - [Clase 1.1](/docs/Documentos/Clases/Clase1_1.md)
+    - [Clase 2](/docs/Documentos/Clases/Clase2.md)
+    - [Clase 3](/docs/Documentos/Clases/Clase3.md)
+    - [Clase 3.1](/docs/Documentos/Clases/Clase3_1.md)
+    - [Clase 4](/docs/Documentos/Clases/Clase4.md)
+    - [Clase 6](/docs/Documentos/Clases/Clase6.md)
+    - [Clase 7](/docs/Documentos/Clases/Clase7.md)
+- 🔧 Practica (Ejercicios)
+    - [Ahorcado](/docs/Documentos/Ahorcado.md)
+    - [Practica 1](/docs/Documentos/Practica1.md)
+    - [Practica 2](/docs/Documentos/Practica2.md)
+    - [Practica 3](/docs/Documentos/Practica3.md)
 
 ---
 
