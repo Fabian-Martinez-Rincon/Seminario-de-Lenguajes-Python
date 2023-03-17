@@ -13,7 +13,7 @@
   <img src="https://media.giphy.com/media/UTYINTtzZCs2DN4gsY/giphy.gif"/>
  </div>
 
----
+<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
 - [🛡️ Defensa](/Defensa.md)
 - 📚 Teoria (Desafios y Tareas)
@@ -31,7 +31,7 @@
     - [Practica 2](/docs/Documentos/Practica2.md)
     - [Practica 3](/docs/Documentos/Practica3.md)
 
----
+<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
 
 ### 📖 Resumenes de cada tema:
