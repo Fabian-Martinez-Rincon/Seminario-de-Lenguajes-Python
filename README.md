@@ -1,19 +1,21 @@
-<div align="center">
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Nomadiix/Seminario-de-Lenguajes-Python)
-[![GitHub stars](https://img.shields.io/github/stars/Nomadiix/Seminario-de-Lenguajes-Python)](https://github.com/FabianMartinez1234567/Seminario-de-Lenguajes-Python/stargazers/)
-[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Nomadiix/Seminario-de-Lenguajes-Python)](https://github.com/Nomadiix/Seminario-de-Lenguajes-Python)
+<div align="center"> 
+
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Fabian-Martinez-Rincon/Seminario-de-Lenguajes-Python)
+[![GitHub stars](https://img.shields.io/github/stars/Fabian-Martinez-Rincon/Seminario-de-Lenguajes-Python)](https://github.com/Fabian-Martinez-Rincon/Seminario-de-Lenguajes-Python/stargazers/)
+[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Fabian-Martinez-Rincon/Seminario-de-Lenguajes-Python)](https://github.com/Fabian-Martinez-Rincon/Seminario-de-Lenguajes-Python)
+
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=1700&pause=800&color=28CDF7&center=true&width=635&lines=Seminario de Lenguajes Python"/>
  </div>
 
-<h1 align="center"><img src="https://media.giphy.com/media/iQrDORShLPiqQ/giphy.gif" height="38" /> Seminario de Lenguajes Python </a>
- <img style="transform:scaleX(-1);" src="https://media.giphy.com/media/NLu0gwvgUMdxPtAHqS/giphy.gif" height="38" /></h1>
+</div>
 
-
-<div align="center">
-  <img src="https://media.giphy.com/media/UTYINTtzZCs2DN4gsY/giphy.gif"/>
- </div>
+<a title="" href="https://cafecito.app/ei-materias"><img src="/Otros/Cafecito.png" alt="" /></a>
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
+
+<p><img width="250" align='right' src="https://media.giphy.com/media/1Ye7CiFf0OvUaJ82A2/giphy.gif"></p>
 
 - [🛡️ Defensa](/Defensa.md)
 - 📚 Teoria (Desafios y Tareas)
