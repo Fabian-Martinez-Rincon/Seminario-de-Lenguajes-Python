@@ -11,9 +11,9 @@
 
 </div>
 
-<details><summary>Promo</summary>
+
 <a title="" href="https://cafecito.app/ei-materias"><img src="/Otros/Cafecito.png" alt="" /></a>
-</details>
+
 
 
 
