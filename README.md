@@ -7,17 +7,16 @@
 
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=1700&pause=800&color=28CDF7&center=true&width=635&lines=Seminario de Lenguajes Python"/>
- </div>
 
+---
+
+<a title="" href="https://youtu.be/tzf4QG1K3Xw?si=P67N8m4CoSMoYToY"><img src="/Otros/image.png" alt="" /></a>
 </div>
 
-
-<a title="" href="https://cafecito.app/ei-materias"><img src="/Otros/Cafecito.png" alt="" /></a>
-
-
-
-
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
+
+> [!IMPORTANT]  
+> Si encuentran algun link roto o tienen alguna duda, no duden en decirme por mail fabianmartinezrincon.123@gmail.com
 
 <p><img width="250" align='right' src="https://media.giphy.com/media/1Ye7CiFf0OvUaJ82A2/giphy.gif"></p>
 
